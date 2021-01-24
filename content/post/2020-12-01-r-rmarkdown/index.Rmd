@@ -85,6 +85,11 @@ tm_dots("Device",alpha = 0.5, size=0.1,col="yellow")+
 tm_shape(df2_lines ) +
 tm_lines( alpha = 0.4)   
 
+```
+
+
+```{r create .kml file, eval=FALSE, include=FALSE}
+
 #centum_klm <- df2_lines %>% st_transform(4326) %>% # just because wgs84...
  # select(Description = Time)
 
