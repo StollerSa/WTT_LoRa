@@ -1,0 +1,10 @@
+---
+title: Beschreibung
+author: Stoller Sandro
+date: '2021-01-24'
+slug: beschreibung
+categories:
+  - R
+tags:
+  - R Markdown
+---

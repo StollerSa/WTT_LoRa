@@ -1,10 +1,10 @@
-baseurl: https://github.com/StollerSa/WTT_LoRa.git
+baseurl: https://wttlora.netlify.app/
 languageCode: en-us
 title: WTT LoRaWAN
 theme: hugo-lithium
 googleAnalytics: ''
 disqusShortname: ''
-ignoreFiles:
+ignoreFiles:  
   - \.Rmd$
   - \.Rmarkdown$
   - _cache$
