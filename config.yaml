@@ -1,4 +1,4 @@
-baseurl: /
+baseurl: https://github.com/StollerSa/WTT_LoRa.git
 languageCode: en-us
 title: WTT LoRaWAN
 theme: hugo-lithium

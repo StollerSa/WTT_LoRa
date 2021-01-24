@@ -1,7 +1,7 @@
 ---
-title: "R Markdown Visualisierungen"
-author: "Sandro Stoller"
-date: 2020-12-01T21:13:14-05:00
+title: "Lokalisationen-Visualisierungen"
+author: "Stll"
+date: "2021-01-24T21:48:51-07:00"
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
@@ -10,25 +10,86 @@ tags: ["R Markdown", "plot", "regression"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-# R Markdown
-test test
+# Einleitung     
+Datendownload und verarbeitung von LoRaWAN Downlinks
 
-```{r cars}
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
+# Server connection
+```{r serverconetion, message=FALSE, warning=FALSE, include=FALSE}
+library(jsonlite)
+mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json")
+mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+```
+   
+
+```{r from Text, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(sf)
+library(tmap)
+mydata$Payload$Content$Device <- mydata$DeviceEUI
+loc_data <- mydata$Payload$Content
+loc_data <- loc_data %>%  drop_na(Time) 
+loc_data$Time <- as.POSIXct(strptime(loc_data$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+loc_data <- loc_data %>% dplyr::filter(Alt != 0.0)
+centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>% 
+                        dplyr::filter(Time >= "2021-01-11 20:00:00")
+```
+# Devices überprüfen
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-1)
+unique(heute$DeviceEUI)
+heute$Payload$Content$Device <-heute$DeviceEUI
+heute$Payload$Content$Time1 <- heute$Time
+heute_pos <- heute$Payload$Content
+heute_pos <- heute_pos %>% drop_na(Time) %>% dplyr::filter(Alt != 0.0) %>% dplyr::select(21,22,23,24,26)
+
+df_heute <- st_as_sf(x = heute_pos ,                         
+           coords = c("Lon", "Lat"),
+           crs = 4326)
+df_heute <- st_transform(df_heute, 2056)
+
+tmap_mode("view")
+
+tm_shape(df_heute) +
+tm_dots("Device",alpha = 0.8)
+```
+    
+
+
+# All Fixes on a map
+
+```{r plot on a map, eval=TRUE}
+df <- st_as_sf(x = loc_data,                         
+           coords = c("Lon", "Lat"),
+           crs = 4326)
+df <- st_transform(df, 2056)
+
+tmap_mode("view")
+
+tm_shape(df) +
+tm_dots("Device",alpha = 0.8)
 ```
 
-# Including Plots
+# Ohrmarke 100
+```{r}
+df2 <- st_as_sf(x = centum,                         
+           coords = c("Lon", "Lat"),
+           crs = 4326)
+df2 <- st_transform(df2, 2056)
 
-You can also embed plots. See Figure \@ref(fig:pie) for example:
+df2_lines <- df2 %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINESTRING")
 
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
+tmap_mode("view")
+tm_basemap(server = "OpenStreetMap")+
+tm_shape(df2) +
+tm_dots("Device",alpha = 0.5, size=0.1,col="yellow")+
+tm_shape(df2_lines ) +
+tm_lines( alpha = 0.4)   
+
+#centum_klm <- df2_lines %>% st_transform(4326) %>% # just because wgs84...
+ # select(Description = Time)
+
+  
+#   st_write(centum_klm, "test.kml", driver = "kml", delete_dsn = TRUE)
+
 ```
+
