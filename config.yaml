@@ -1,11 +1,12 @@
 baseurl: https://wttlora.netlify.app/
+relativeURLs: true
 languageCode: en-us
 title: WTT LoRaWAN
 theme: hugo-lithium
 googleAnalytics: ''
 disqusShortname: ''
 ignoreFiles:  
-  - \.Rmd$
+  - \.Rmd$  
   - \.Rmarkdown$
   - _cache$
   - \.knit\.md$
