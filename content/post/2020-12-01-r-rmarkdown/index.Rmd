@@ -30,14 +30,15 @@ loc_data <- loc_data %>% dplyr::filter(Alt != 0.0)
 centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>% 
                         dplyr::filter(Time >= "2021-01-11 20:00:00")
 ```
-# Devices überprüfen
+# Devices überprüfen 
+Positionen des letzten Tages bis jetzt
 ```{r Device check, echo=FALSE, message=FALSE, warning=FALSE}
 heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-1)
-unique(heute$DeviceEUI)
+
 heute$Payload$Content$Device <-heute$DeviceEUI
 heute$Payload$Content$Time1 <- heute$Time
 heute_pos <- heute$Payload$Content
-heute_pos <- heute_pos %>% drop_na(Time) %>% dplyr::filter(Alt != 0.0) %>% dplyr::select(21,22,23,24,26)
+heute_pos <- heute_pos %>% drop_na(Time) %>% dplyr::filter(Alt != 0.0) # %>% dplyr::select(21,22,23,24,26)
 
 df_heute <- st_as_sf(x = heute_pos ,                         
            coords = c("Lon", "Lat"),
@@ -54,7 +55,7 @@ tm_dots("Device",alpha = 0.8)
 
 # All Fixes on a map
 
-```{r plot on a map, echo=FALSE}
+```{r plot on a map, echo=FALSE, message=FALSE, warning=FALSE}
 df <- st_as_sf(x = loc_data,                         
            coords = c("Lon", "Lat"),
            crs = 4326)
@@ -67,7 +68,7 @@ tm_dots("Device",alpha = 0.8)
 ```
 
 # Ohrmarke 100
-```{r centum, echo=FALSE}
+```{r centum, echo=FALSE, message=FALSE, warning=FALSE}
 df2 <- st_as_sf(x = centum,                         
            coords = c("Lon", "Lat"),
            crs = 4326)

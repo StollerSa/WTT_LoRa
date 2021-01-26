@@ -1,15 +1,11 @@
 ---
-title: Beschreibung
-author: Stoller Sandro
+title: "Device Parameter"
+author: "Stoller Sandro"
 date: '2021-01-24'
-slug: beschreibung
 categories:  ["R"]
 tags: ["R Markdown"]
 ---
 
-
-# Tracker F08
-Der Tracker wurde am in betrieb genommen... usw usf...
 # Server connection
 ```{r serverconetion, message=FALSE, warning=FALSE, include=FALSE}
 library(jsonlite)
@@ -22,9 +18,8 @@ mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), f
 mydata$Payload$Content$Device <- mydata$DeviceEUI
 ```
 
-# F08 Lifecycle
-Grafische Darstellung des Lebenszyklus von F08
-```{r Lifecycle F8}
+# Grafische Darstellung des Lebenszyklus von F08
+```{r Lifecycle F8, echo=FALSE, message=FALSE, warning=FALSE}
 locations <- mydata %>%  
               dplyr::filter(Payload$Type == "Location") %>%
               group_by(DeviceEUI) 
