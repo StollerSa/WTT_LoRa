@@ -3,11 +3,11 @@ title: Beschreibung
 author: Stoller Sandro
 date: '2021-01-24'
 slug: beschreibung
-categories:
-  - R
-tags:
-  - R Markdown
+categories:  ["R"]
+tags: ["R Markdown"]
 ---
+
+
 # Tracker F08
 Der Tracker wurde am in betrieb genommen... usw usf...
 # Server connection

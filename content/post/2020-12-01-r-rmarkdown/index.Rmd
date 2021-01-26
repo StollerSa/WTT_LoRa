@@ -6,9 +6,6 @@ categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
-``{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-``
 
 # Einleitung     
 Datendownload und verarbeitung von LoRaWAN Downlinks
@@ -34,7 +31,7 @@ centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>%
                         dplyr::filter(Time >= "2021-01-11 20:00:00")
 ```
 # Devices überprüfen
-```{r, message=FALSE, warning=FALSE, include=T}
+```{r Device check, echo=FALSE, message=FALSE, warning=FALSE}
 heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-1)
 unique(heute$DeviceEUI)
 heute$Payload$Content$Device <-heute$DeviceEUI
@@ -57,7 +54,7 @@ tm_dots("Device",alpha = 0.8)
 
 # All Fixes on a map
 
-```{r plot on a map, eval=TRUE}
+```{r plot on a map, echo=FALSE}
 df <- st_as_sf(x = loc_data,                         
            coords = c("Lon", "Lat"),
            crs = 4326)
@@ -70,7 +67,7 @@ tm_dots("Device",alpha = 0.8)
 ```
 
 # Ohrmarke 100
-```{r}
+```{r centum, echo=FALSE}
 df2 <- st_as_sf(x = centum,                         
            coords = c("Lon", "Lat"),
            crs = 4326)
