@@ -6,9 +6,9 @@ categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
-```{r setup, include=FALSE}
+``{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
-```
+``
 
 # Einleitung     
 Datendownload und verarbeitung von LoRaWAN Downlinks
@@ -34,7 +34,7 @@ centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>%
                         dplyr::filter(Time >= "2021-01-11 20:00:00")
 ```
 # Devices überprüfen
-```{r, message=FALSE, warning=FALSE, include=FALSE}
+```{r, message=FALSE, warning=FALSE, include=T}
 heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-1)
 unique(heute$DeviceEUI)
 heute$Payload$Content$Device <-heute$DeviceEUI
