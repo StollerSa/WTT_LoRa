@@ -1,24 +1,30 @@
 ---
 title: "Lokalisationen-Visualisierungen"
 author: "Stll"
-date: "2021-01-24T21:48:51-07:00"
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+date: '2021-01-24T21:48:51-07:00'
+output: pdf_document
+tags:
+- R Markdown
+- plot
+- regression
+categories: R
 ---
 
 
 # Einleitung     
 Datendownload und verarbeitung von LoRaWAN Downlinks
-
+  
 # Server connection
 ```{r serverconetion, message=FALSE, warning=FALSE, include=FALSE}
 library(jsonlite)
 mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json")
 mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
-```
-   
 
-```{r from Text, message=FALSE, warning=FALSE, include=FALSE}
+```
+
+`r unique(mydata$device)`
+
+```{r from Text,, message=FALSE, warning=FALSE, include=FALSE}
 library(tidyverse)
 library(sf)
 library(tmap)
@@ -27,9 +33,11 @@ loc_data <- mydata$Payload$Content
 loc_data <- loc_data %>%  drop_na(Time) 
 loc_data$Time <- as.POSIXct(strptime(loc_data$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
 loc_data <- loc_data %>% dplyr::filter(Alt != 0.0)
-centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>% 
-                        dplyr::filter(Time >= "2021-01-11 20:00:00")
+  centum <- loc_data %>%  dplyr::filter(Device == "00D359FDBB66FE3E")%>% 
+                          dplyr::filter(Time >= "2021-01-11 20:00:00")
 ```
+
+
 # Devices überprüfen 
 Positionen des letzten Tages bis jetzt
 ```{r Device check, echo=FALSE, message=FALSE, warning=FALSE}

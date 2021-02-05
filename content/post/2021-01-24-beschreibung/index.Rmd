@@ -28,15 +28,15 @@ status <- mydata %>%
               dplyr::filter(Time >= "2021-01-01 00:00:00")
     
   
-  ggplot(status, aes(x = as.Date(Time), y = Payload$Content$BatteryVoltage, colour = DeviceEUI)) +
-  geom_point() +
-    geom_line()+
-  facet_wrap( ~ DeviceEUI)+
-    theme(legend.position = "none",panel.background = element_blank(),
-            panel.grid.major = element_line(size = 0.5, linetype = 'solid',
-                                colour = "gray"))+
-    labs(title="Plot der Batteriespannung",
-        x ="Datum", y = "Batteriespannung")
+    ggplot(status, aes(x = as.Date(Time), y = Payload$Content$BatteryVoltage, colour = DeviceEUI)) +
+    geom_point() +
+      geom_line()+
+    facet_wrap( ~ DeviceEUI)+
+      theme(legend.position = "none",panel.background = element_blank(),
+              panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                  colour = "gray"))+
+      labs(title="Plot der Batteriespannung",
+          x ="Datum", y = "Batteriespannung")
 
   
 ```
