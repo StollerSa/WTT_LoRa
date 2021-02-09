@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
   library(sf)
   library(tmap)
   library(scales) 
+  library(kableExtra)
    # make json, then make list
   mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
   
@@ -26,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
 
 ```
-Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
 # Shows Payload last 3 Days
 ```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
@@ -64,7 +65,16 @@ ggplot(FyyStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung")
 ```
-  
+# Show Status Table from the last 7 Days
+
+```{r Status as Table, echo=FALSE}
+library(kableExtra)
+FyyStatus  %>% filter(Time >= Sys.Date()-7)%>%
+  select(c(1,3,5,14,19))%>%
+  kbl(caption = "Statusmassages from Fyy") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
 
 # Show Gateways der letzen 2 Tage
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -106,5 +116,17 @@ tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") #+
 #tm_shape(df_Fyy_lines) +
 #tm_lines( alpha = 0.4)   
   
+```
+
+# Location as table
+
+```{r loctable fyy, echo=FALSE}
+ mydata  %>%
+  dplyr::filter(DeviceEUI == "00BC251BBBD699F9")%>% 
+          dplyr::filter(Payload.Type== "Location")%>%
+        filter(Time >= Sys.Date()-7)%>%
+        select(c(1,3,30,31,32))%>%
+        kbl(caption = "Locationmassages from Fyy") %>%
+        kable_classic(full_width = F, html_font = "Cambria")
 ```
 
