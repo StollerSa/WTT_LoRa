@@ -37,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
   geom_point()+
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 days"),
-  labels = date_format("%d/%m%"))
+  labels = date_format("%d/%m"))
 
 
 ```
