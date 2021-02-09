@@ -6,38 +6,70 @@ categories:  ["R"]
 tags: ["R Markdown"]
 ---
 
+# Einleitung  
+Visualisierungen der Kennwerte aller Devices
+
 # Server connection
-```{r serverconetion, message=FALSE, warning=FALSE, include=FALSE}
-library(jsonlite)
-library(tidyverse)
-#daten vom server laden
-mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json") 
-# zeiten formatiern
-mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
-# die Information des Device in die subgruppe locations anhängen.
-mydata$Payload$Content$Device <- mydata$DeviceEUI
+```{r serverconetion, message=FALSE, warning=TRUE, include=FALSE}
+  library(jsonlite)
+  library(tidyverse)
+  library(sf)
+  library(tmap)
+  library(scales) 
+   # make json, then make list
+  mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
+  
+  mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+  mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+
+```
+- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
+# Shows Payload last 7 Days
+```{r Payload.Type, echo=FALSE, fig.height=4, fig.width=14, message=FALSE, warning=FALSE}
+
+ mydata %>%    group_by(DeviceEUI) %>%
+                dplyr::filter(Time >= Sys.Date()-7)%>%
+  ggplot(aes(Time, Payload.Type))+
+  geom_point()+
+  theme_bw()+
+  scale_x_datetime(breaks = date_breaks("1 days"),
+  labels = date_format("%d/%m"))+
+  facet_wrap( ~ DeviceEUI)
+
+```
+ 
+
+```{r from Text, echo=FALSE, message=FALSE, warning=FALSE}
+locdata <- mydata %>% 
+          dplyr::filter(Payload.Type== "Location")%>%
+          dplyr::filter("Payload.Content.Alt" != 0.0)# %>%
+         # dplyr::select(-c(9:28))
+# The "official" extent for all our country-scale analysis (i.e. Switzerland) is:
+  # Latitude: Min 45.6755, Max  47.9163
+  # Longitude: Min 5.7349, Max 10.6677
+locdata <- locdata %>%  dplyr::filter(Payload.Content.Lon <= 10.6677 )%>%
+                      dplyr::filter(Payload.Content.Lon >= 5.7349 )%>%
+                      dplyr::filter(Payload.Content.Lat <= 47.9163 )%>%
+                      dplyr::filter(Payload.Content.Lat >= 45.6755 )
+
+
+statdata <- mydata %>% 
+          dplyr::filter(Payload.Type== "Status") # %>%
+          #dplyr::fselect(- c())
 ```
 
-# Grafische Darstellung des Lebenszyklus von F08
-```{r Lifecycle F8, echo=FALSE, message=FALSE, warning=FALSE}
-locations <- mydata %>%  
-              dplyr::filter(Payload$Type == "Location") %>%
-              group_by(DeviceEUI) 
-status <- mydata %>% 
-              dplyr::filter((Payload$Type =="Status")) %>%
-              dplyr::filter(Time >= "2021-01-01 00:00:00")
-    
-  
-    ggplot(status, aes(x = as.Date(Time), y = Payload$Content$BatteryVoltage, colour = DeviceEUI)) +
-    geom_point() +
-      geom_line()+
-    facet_wrap( ~ DeviceEUI)+
-      theme(legend.position = "none",panel.background = element_blank(),
-              panel.grid.major = element_line(size = 0.5, linetype = 'solid',
-                                  colour = "gray"))+
-      labs(title="Plot der Batteriespannung",
-          x ="Datum", y = "Batteriespannung")
-
-  
+# Batterielevel   
+- seit Anfangs Jahr 2021
+```{r Batterielevel, echo=FALSE, message=FALSE, warning=FALSE}
+statdata %>% dplyr::filter(Time >= "2021-01-01 00:00:00")%>%
+ggplot( aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = DeviceEUI)) +
+  geom_point() +
+    geom_line()+
+  facet_wrap( ~ DeviceEUI)+
+    theme(legend.position = "none",panel.background = element_blank(),
+            panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                colour = "gray"))+
+    labs(title="Plot der Batteriespannung",
+        x ="Datum", y = "Batteriespannung")
 ```
-

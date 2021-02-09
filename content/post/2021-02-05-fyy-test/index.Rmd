@@ -26,17 +26,17 @@ knitr::opts_chunk$set(echo = TRUE)
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
 
 ```
-
+Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
 # Shows Payload last 3 Days
-```{r echo=FALSE, warning=FALSE , message=FALSE}
+```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
 
  mydata %>%    dplyr::filter(DeviceEUI == "00BC251BBBD699F9") %>%
                 dplyr::filter(Time >= Sys.Date()-3)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
   theme_bw()+
-  scale_x_datetime(breaks = date_breaks("1 days"),
+  scale_x_datetime(breaks = date_breaks("1 day"),
   labels = date_format("%d/%m"))
 
 
@@ -44,7 +44,6 @@ knitr::opts_chunk$set(echo = TRUE)
  
 
 ```{r from Text, echo=FALSE, message=FALSE, warning=FALSE}
-
 
 Fyy <- mydata  %>%
   dplyr::filter(DeviceEUI == "00BC251BBBD699F9")
@@ -106,7 +105,6 @@ tm_shape(df_Fyy) +
 tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") #+
 #tm_shape(df_Fyy_lines) +
 #tm_lines( alpha = 0.4)   
-
-
+  
 ```
 
