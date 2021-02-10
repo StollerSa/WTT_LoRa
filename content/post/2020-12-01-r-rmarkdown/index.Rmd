@@ -14,7 +14,7 @@ categories: R
 Datendownload und verarbeitung von LoRaWAN Downlinks
 
 # Server connection
-```{r serverconetion, , message=FALSE, warning=FALSE, include=FALSE}
+```{r serverconetion, message=FALSE, warning=FALSE, include=FALSE}
   library(jsonlite)
   library(tidyverse)
   library(sf)

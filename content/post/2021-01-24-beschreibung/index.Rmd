@@ -72,5 +72,5 @@ ggplot( aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = Devi
             panel.grid.major = element_line(size = 0.5, linetype = 'solid',
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
-        x ="Datum", y = "Batteriespannung")
+        x ="Datum", y = "Batteriespannung") 
 ```
