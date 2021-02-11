@@ -120,7 +120,7 @@ tm_shape(df2_lines ) +
 tm_lines( alpha = 0.4)   
 
 #centum_klm <- df2_lines %>% st_transform(4326) %>% # just because wgs84...
- # select(Description = Time)
+ # select(Description = Time) 
 
   
 #   st_write(centum_klm, "test.kml", driver = "kml", delete_dsn = TRUE)

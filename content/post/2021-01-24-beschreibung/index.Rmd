@@ -16,7 +16,7 @@ Visualisierungen der Kennwerte aller Devices
   library(sf)
   library(tmap)
   library(scales) 
-  library(kableExtra)
+  library(kableExtra) 
    # make json, then make list
   mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
   
