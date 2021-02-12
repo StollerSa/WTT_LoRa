@@ -1,0 +1,141 @@
+---
+title: Test F55
+author: Stoller Sandro
+date: '2021-02-12'
+slug: F55
+categories: []
+tags:
+  - R Markdown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Server connection
+```{r serverconetion, , message=FALSE, warning=FALSE, include=FALSE}
+  library(jsonlite)
+  library(tidyverse)
+  library(sf)
+  library(tmap)
+  library(scales) 
+  library(kableExtra)
+   # make json, then make list
+  mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
+  
+  mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+  mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+
+```
+- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
+# Shows Payload last 3 Days
+```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
+
+ mydata %>%    dplyr::filter(DeviceEUI == "0031873B48B65522") %>%
+                dplyr::filter(Time >= Sys.Date()-3)%>%
+  ggplot(aes(Time, Payload.Type))+
+  geom_point()+
+  theme_bw()+
+  scale_x_datetime(breaks = date_breaks("1 day"),
+  labels = date_format("%d/%m"))
+
+
+```
+ 
+
+```{r from Text, echo=FALSE, message=FALSE, warning=FALSE}
+
+F55 <- mydata  %>%
+  dplyr::filter(DeviceEUI == "0031873B48B65522")
+
+
+
+#Batterielevel F55
+F55Status <- F55 %>% 
+  dplyr::filter(Payload.Type== "Status")  
+
+ggplot(F55Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = DeviceEUI)) +
+  geom_point() +
+    geom_line()+
+  facet_wrap( ~ DeviceEUI)+
+    theme(legend.position = "none",panel.background = element_blank(),
+            panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                colour = "gray"))+
+    labs(title="Plot der Batteriespannung",
+        x ="Datum", y = "Batteriespannung")
+```
+# Show Status Table from the last 7 Days
+
+```{r Status as Table, echo=FALSE}
+
+F55Status  %>% filter(Time >= Sys.Date()-7)%>%
+  select(c(1,3,5,14,19,24))%>%
+        rename(Temperatur = Payload.Content.Temperature , 
+               BatteryVoltage = Payload.Content.BatteryVoltage)%>%
+  kbl(caption = "Statusmassages from F55") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+    
+    
+    
+
+# Show Gateways der letzen 2 Tage
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+F55heute <- F55 %>% dplyr::filter(Time >= Sys.Date()-2) 
+
+F55gw_heute <- st_as_sf(x = F55heute ,                         
+           coords = c("GatewayLon", "GatewayLat"),
+           crs = 4326) %>% 
+            st_transform( 2056)
+
+tmap_mode("view")
+
+tm_shape(F55gw_heute) +
+tm_dots("DeviceEUI",alpha = 1, size = 0.3)
+```
+    
+
+# Localisationen seit "2021-02-03" 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+F55LocData <- mydata  %>%
+  dplyr::filter(DeviceEUI == "0031873B48B65522")%>% 
+          dplyr::filter(Payload.Type== "Location")%>%
+          dplyr::filter("Payload.Content.Alt" != 0.0)%>%
+          dplyr::filter(Payload.Content.Time > "2021-02-03 00:00:00")
+
+
+df_F55 <- st_as_sf(x = F55LocData ,                         
+           coords = c("Payload.Content.Lon", "Payload.Content.Lat"),
+           crs = 4326)
+df_F55 <- st_transform(df_F55, 2056)
+
+df_F55_lines <- df_F55 %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINESTRING")
+
+tmap_mode("view")
+tm_basemap(server = "OpenStreetMap")+
+tm_shape(df_F55) +
+tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") +
+tm_shape(df_F55_lines) +
+tm_lines( alpha = 0.4)   
+  
+```
+
+# Location as table
+
+```{r loctable F55, echo=FALSE, fig.height=6, fig.width=6}
+ mydata  %>%
+    dplyr::filter(DeviceEUI == "0031873B48B65522")%>% 
+          dplyr::filter(Payload.Type== "Location")%>%
+        filter(Time >= Sys.Date()-7)%>%
+        rename(Latitude =Payload.Content.Lat , 
+               Longitude = Payload.Content.Lon ,
+               Altitude = Payload.Content.Alt )%>%
+        select(c(1,3,30,31,32))%>%
+        kbl(caption = "Locationmassages from F55") %>%
+        kable_classic(full_width = F, html_font = "Cambria") 
+```
+

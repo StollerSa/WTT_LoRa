@@ -1,0 +1,1790 @@
+---
+title: Test F55
+author: Stoller Sandro
+date: '2021-02-12'
+slug: F55
+categories: []
+tags:
+  - R Markdown
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/proj4/proj4.min.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+<script src="/rmarkdown-libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
+<script src="/rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+
+
+<div id="server-connection" class="section level1">
+<h1>Server connection</h1>
+<ul>
+<li>Last compiled on 12 Februar, 2021</li>
+</ul>
+</div>
+<div id="shows-payload-last-3-days" class="section level1">
+<h1>Shows Payload last 3 Days</h1>
+<p><img src="/post/2021-02-12-test-f55/F55_files/figure-html/payload-1.png" width="672" /></p>
+<p><img src="/post/2021-02-12-test-f55/F55_files/figure-html/from%20Text-1.png" width="672" />
+# Show Status Table from the last 7 Days</p>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:Status as Table)Statusmassages from F55
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+Rssi
+</th>
+<th style="text-align:right;">
+SpreadingFactor
+</th>
+<th style="text-align:right;">
+Temperatur
+</th>
+<th style="text-align:right;">
+BatteryVoltage
+</th>
+<th style="text-align:right;">
+Payload.Content.GpsAverageSignal
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2021-02-12 10:51:08
+</td>
+<td style="text-align:right;">
+-100
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:right;">
+3218
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-12 07:49:07
+</td>
+<td style="text-align:right;">
+-98
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6549.6
+</td>
+<td style="text-align:right;">
+3428
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-12 04:49:07
+</td>
+<td style="text-align:right;">
+-101
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6549.5
+</td>
+<td style="text-align:right;">
+3436
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-12 01:49:07
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6549.8
+</td>
+<td style="text-align:right;">
+3434
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 22:55:06
+</td>
+<td style="text-align:right;">
+-104
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:right;">
+3204
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 19:49:06
+</td>
+<td style="text-align:right;">
+-103
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6550.5
+</td>
+<td style="text-align:right;">
+3464
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 17:09:05
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12.6
+</td>
+<td style="text-align:right;">
+3552
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 17:04:05
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12.6
+</td>
+<td style="text-align:right;">
+3552
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 13:51:04
+</td>
+<td style="text-align:right;">
+-116
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+22.1
+</td>
+<td style="text-align:right;">
+3566
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:59:04
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3344
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:54:04
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3344
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 08:50:04
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+17.2
+</td>
+<td style="text-align:right;">
+3548
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 04:49:03
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+<td style="text-align:right;">
+3514
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 01:49:03
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+20.6
+</td>
+<td style="text-align:right;">
+3552
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 23:19:03
+</td>
+<td style="text-align:right;">
+-108
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+27.7
+</td>
+<td style="text-align:right;">
+3462
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 23:16:02
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+18.0
+</td>
+<td style="text-align:right;">
+3558
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 18:59:01
+</td>
+<td style="text-align:right;">
+-110
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+13.9
+</td>
+<td style="text-align:right;">
+3538
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 13:49:01
+</td>
+<td style="text-align:right;">
+-112
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+<td style="text-align:right;">
+3516
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 07:49:01
+</td>
+<td style="text-align:right;">
+-109
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3494
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 04:49:00
+</td>
+<td style="text-align:right;">
+-113
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+12.5
+</td>
+<td style="text-align:right;">
+3526
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 01:49:00
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:right;">
+3470
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 19:48:59
+</td>
+<td style="text-align:right;">
+-96
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3492
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 16:48:59
+</td>
+<td style="text-align:right;">
+-88
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+11.1
+</td>
+<td style="text-align:right;">
+3514
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 13:48:59
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+30.5
+</td>
+<td style="text-align:right;">
+3574
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 07:48:58
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+3478
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 04:49:58
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3514
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 01:48:58
+</td>
+<td style="text-align:right;">
+-102
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+3464
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 19:48:57
+</td>
+<td style="text-align:right;">
+-102
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5.2
+</td>
+<td style="text-align:right;">
+3496
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 16:48:57
+</td>
+<td style="text-align:right;">
+-108
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+3500
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 13:57:57
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+13.4
+</td>
+<td style="text-align:right;">
+3518
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 13:55:57
+</td>
+<td style="text-align:right;">
+-116
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+<td style="text-align:right;">
+3534
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 04:48:56
+</td>
+<td style="text-align:right;">
+-82
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+3460
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 01:48:56
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+3472
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 19:49:55
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3.7
+</td>
+<td style="text-align:right;">
+3462
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 16:48:55
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+3478
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 13:48:55
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+<td style="text-align:right;">
+3484
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 07:48:54
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+3480
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 04:48:54
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+3456
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 01:48:56
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+3472
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 19:48:56
+</td>
+<td style="text-align:right;">
+-90
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+3506
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 16:48:56
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+<td style="text-align:right;">
+3492
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 13:49:55
+</td>
+<td style="text-align:right;">
+-89
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3486
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 10:48:49
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11.2
+</td>
+<td style="text-align:right;">
+3352
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-05 10:56:47
+</td>
+<td style="text-align:right;">
+-121
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+24.1
+</td>
+<td style="text-align:right;">
+3428
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-05 10:51:47
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+24.1
+</td>
+<td style="text-align:right;">
+3428
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-05 10:48:47
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+24.1
+</td>
+<td style="text-align:right;">
+3428
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="show-gateways-der-letzen-2-tage" class="section level1">
+<h1>Show Gateways der letzen 2 Tage</h1>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"addProviderTiles","args":["Esri.WorldGrayCanvas",null,"Esri.WorldGrayCanvas",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addCircleMarkers","args":[[46.945328010305,46.945328010305,46.9492680103049,46.945362010305,46.945374010305,46.945362010305,46.9492870103049,46.9392470103035,46.9392470103035,46.9392740103035,46.9492650103049,46.9381180102885,46.9381180102885,46.9381370102885,46.9381870102885,46.9381870102885,46.9381870102885,46.9381330102886,46.9381330102886,46.9381330102886,46.9381640102886,46.9381640102886,46.9381640102886,46.9381640102886,46.93184701028,46.93184701028,46.93181601028,46.93182801028,47.3192670103455,47.3192900103455,47.4037700101962,47.4037930101962,47.4037740101962,47.4037820101962,47.3121070101533,47.4144480101692,47.4388010101772,47.4388080101772,47.4388050101772,47.4388160101772,47.4388160101773,47.6436580102268,47.6436580102268],[7.42995400737687,7.42996500737688,7.43695100738336,7.42989200737679,7.42990900737681,7.42994100737684,7.43694100738335,7.42629400737445,7.42629400737445,7.42627800737442,7.43695700738337,7.48574100743805,7.48574100743805,7.48567800743798,7.48567200743796,7.48567200743796,7.48567200743796,7.485689007438,7.485689007438,7.485689007438,7.48567100743797,7.48567100743797,7.48567100743797,7.48567100743797,7.51008100746546,7.51008100746546,7.51012100746551,7.51016200746555,7.81446400768205,7.81448900768207,8.46039500830421,8.46041300830423,8.46042300830424,8.46040300830422,8.50606300837686,8.56557600840313,8.56430100839427,8.56426300839424,8.56427900839425,8.56428900839425,8.56430700839427,8.60250400836551,8.60250400836551],[10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033],["X2021.02.12.10.51.08","X2021.02.12.10.50.06","X2021.02.12.07.49.07","X2021.02.12.06.50.05","X2021.02.12.04.49.07","X2021.02.12.02.50.05","X2021.02.12.01.49.07","X2021.02.11.22.55.06","X2021.02.11.22.54.05","X2021.02.11.19.49.06","X2021.02.11.18.52.05","X2021.02.11.17.09.05","X2021.02.11.17.04.05","X2021.02.11.14.50.04","X2021.02.11.13.51.04","X2021.02.11.12.59.04","X2021.02.11.12.54.04","X2021.02.11.12.34.03","X2021.02.11.12.24.03","X2021.02.11.12.14.03","X2021.02.11.12.09.03","X2021.02.11.12.04.03","X2021.02.11.11.59.03","X2021.02.11.11.54.03","X2021.02.11.08.50.04","X2021.02.11.08.49.03","X2021.02.11.07.14.03","X2021.02.11.04.49.03","X2021.02.11.02.50.03","X2021.02.11.01.49.03","X2021.02.10.23.19.03","X2021.02.10.23.18.02","X2021.02.10.23.16.02","X2021.02.10.23.14.02","X2021.02.10.18.59.01","X2021.02.10.16.19.01","X2021.02.10.13.49.01","X2021.02.10.10.52.01","X2021.02.10.07.49.01","X2021.02.10.06.51.00","X2021.02.10.04.49.00","X2021.02.10.02.51.00","X2021.02.10.01.49.00"],"F55gw_heute",{"interactive":true,"className":"","pane":"tmap401","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7"],"fillOpacity":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 10:51:08<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 10:50:06<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 07:49:07<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 06:50:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 04:49:07<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 02:50:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 01:49:07<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 22:55:06<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 22:54:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 19:49:06<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 18:52:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 17:09:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 17:04:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 14:50:04<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 13:51:04<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:59:04<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:54:04<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:34:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:24:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:14:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:09:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 12:04:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 11:59:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 11:54:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 08:50:04<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 08:49:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 07:14:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 04:49:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 02:50:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 01:49:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 23:19:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 23:18:02<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 23:16:02<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 23:14:02<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 18:59:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 16:19:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 13:49:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 10:52:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 07:49:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 06:51:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 04:49:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 02:51:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 01:49:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-12 10:51:08","2021-02-12 10:50:06","2021-02-12 07:49:07","2021-02-12 06:50:05","2021-02-12 04:49:07","2021-02-12 02:50:05","2021-02-12 01:49:07","2021-02-11 22:55:06","2021-02-11 22:54:05","2021-02-11 19:49:06","2021-02-11 18:52:05","2021-02-11 17:09:05","2021-02-11 17:04:05","2021-02-11 14:50:04","2021-02-11 13:51:04","2021-02-11 12:59:04","2021-02-11 12:54:04","2021-02-11 12:34:03","2021-02-11 12:24:03","2021-02-11 12:14:03","2021-02-11 12:09:03","2021-02-11 12:04:03","2021-02-11 11:59:03","2021-02-11 11:54:03","2021-02-11 08:50:04","2021-02-11 08:49:03","2021-02-11 07:14:03","2021-02-11 04:49:03","2021-02-11 02:50:03","2021-02-11 01:49:03","2021-02-10 23:19:03","2021-02-10 23:18:02","2021-02-10 23:16:02","2021-02-10 23:14:02","2021-02-10 18:59:01","2021-02-10 16:19:01","2021-02-10 13:49:01","2021-02-10 10:52:01","2021-02-10 07:49:01","2021-02-10 06:51:00","2021-02-10 04:49:00","2021-02-10 02:51:00","2021-02-10 01:49:00"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["#8DD3C7"],"labels":["0031873B48B65522"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"unknown","title":"DeviceEUI","extra":null,"layerId":"legend401","className":"info legend","group":"F55gw_heute"}]},{"method":"addLayersControl","args":[["Esri.WorldGrayCanvas","OpenStreetMap","Esri.WorldTopoMap"],"F55gw_heute",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[46.93181601028,47.6436580102268],"lng":[7.42627800737442,8.60250400836551]},"fitBounds":[46.93181601028,7.42627800737442,47.6436580102268,8.60250400836551,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="localisationen-seit-2021-02-03" class="section level1">
+<h1>Localisationen seit “2021-02-03”</h1>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"createMapPane","args":["tmap402",402]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addCircleMarkers","args":[[46.9474400103048,46.9474700103048,46.9474600103048,46.9474500103048,46.9476700103047,47.3201500103452,47.4452300101831,47.6436800102269,47.6437800102269,47.643950010227,47.4437600101824,47.4437600101824,47.6437600102269,47.6436600102269,47.6438500102269,47.4435800101824,47.4436600101824,47.6437000102269,47.6437000102268,47.6437000102269,47.6436900102268,47.6437700102269,47.6437700102268,47.6437600102269,47.6437700102269,47.6437700102269,47.6438000102268,47.6437800102269,47.6436600102269,47.4437300101824,47.4436900101824],[7.43444000738114,7.43437000738105,7.43429000738097,7.43436000738104,7.43484000738151,7.81686000768426,8.55113000837952,8.6024000083654,8.60236000836533,8.60216000836509,8.5517700083806,8.55171000838055,8.60222000836521,8.60228000836529,8.60237000836532,8.55175000838064,8.55182000838068,8.60242000836542,8.60253000836552,8.60241000836541,8.60247000836547,8.60248000836545,8.60250000836547,8.60238000836536,8.60249000836546,8.60252000836549,8.60251000836547,8.60250000836547,8.60231000836533,8.55204000838087,8.55188000838073],[6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676],["X2021.02.12.10.50.06","X2021.02.12.06.50.05","X2021.02.12.02.50.05","X2021.02.11.22.54.05","X2021.02.11.18.52.05","X2021.02.11.02.50.03","X2021.02.10.06.51.00","X2021.02.10.02.51.00","X2021.02.09.22.50.00","X2021.02.09.18.49.59","X2021.02.09.10.50.59","X2021.02.09.06.49.58","X2021.02.09.02.50.58","X2021.02.08.22.49.58","X2021.02.08.18.50.57","X2021.02.08.14.50.57","X2021.02.08.13.53.57","X2021.02.08.02.49.56","X2021.02.07.22.49.55","X2021.02.07.18.49.55","X2021.02.07.14.50.55","X2021.02.07.10.49.54","X2021.02.07.06.50.54","X2021.02.07.02.49.54","X2021.02.06.22.49.55","X2021.02.06.18.50.55","X2021.02.06.14.49.54","X2021.02.06.10.47.48","X2021.02.05.10.47.47","X2021.02.04.10.47.46","X2021.02.03.10.49.40"],"df_F55",{"interactive":true,"className":"","pane":"tmap401","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00"],"fillOpacity":[0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275,0.498039215686275]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 10:50:06<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 06:50:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-12 02:50:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 22:54:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 18:52:05<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-11 02:50:03<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 06:51:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-10 02:51:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-09 22:50:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-09 18:49:59<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-09 10:50:59<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-09 06:49:58<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-09 02:50:58<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-08 22:49:58<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-08 18:50:57<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-08 14:50:57<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-08 13:53:57<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-08 02:49:56<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 22:49:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 18:49:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 14:50:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 10:49:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 06:50:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-07 02:49:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-06 22:49:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-06 18:50:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-06 14:49:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-06 10:47:48<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-05 10:47:47<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-04 10:47:46<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-03 10:49:40<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>0031873B48B65522<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-12 10:50:06","2021-02-12 06:50:05","2021-02-12 02:50:05","2021-02-11 22:54:05","2021-02-11 18:52:05","2021-02-11 02:50:03","2021-02-10 06:51:00","2021-02-10 02:51:00","2021-02-09 22:50:00","2021-02-09 18:49:59","2021-02-09 10:50:59","2021-02-09 06:49:58","2021-02-09 02:50:58","2021-02-08 22:49:58","2021-02-08 18:50:57","2021-02-08 14:50:57","2021-02-08 13:53:57","2021-02-08 02:49:56","2021-02-07 22:49:55","2021-02-07 18:49:55","2021-02-07 14:50:55","2021-02-07 10:49:54","2021-02-07 06:50:54","2021-02-07 02:49:54","2021-02-06 22:49:55","2021-02-06 18:50:55","2021-02-06 14:49:54","2021-02-06 10:47:48","2021-02-05 10:47:47","2021-02-04 10:47:46","2021-02-03 10:49:40"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[7.43444000738114,7.43437000738105,7.43429000738097,7.43436000738104,7.43484000738151,7.81686000768426,8.55113000837952,8.6024000083654,8.60236000836533,8.60216000836509,8.5517700083806,8.55171000838055,8.60222000836521,8.60228000836529,8.60237000836532,8.55175000838064,8.55182000838068,8.60242000836542,8.60253000836552,8.60241000836541,8.60247000836547,8.60248000836545,8.60250000836547,8.60238000836536,8.60249000836546,8.60252000836549,8.60251000836547,8.60250000836547,8.60231000836533,8.55204000838087,8.55188000838073],"lat":[46.9474400103048,46.9474700103048,46.9474600103048,46.9474500103048,46.9476700103047,47.3201500103452,47.4452300101831,47.6436800102269,47.6437800102269,47.643950010227,47.4437600101824,47.4437600101824,47.6437600102269,47.6436600102269,47.6438500102269,47.4435800101824,47.4436600101824,47.6437000102269,47.6437000102268,47.6437000102269,47.6436900102268,47.6437700102269,47.6437700102268,47.6437600102269,47.6437700102269,47.6437700102269,47.6438000102268,47.6437800102269,47.6436600102269,47.4437300101824,47.4436900101824]}]]],"X1","df_F55_lines",{"interactive":true,"className":"","pane":"tmap402","stroke":true,"color":"#000000","weight":1,"opacity":0.4,"fill":false,"fillColor":"#000000","fillOpacity":0.2,"dashArray":"none","smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLayersControl","args":[[],["df_F55","df_F55_lines"],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[46.9474400103048,47.643950010227],"lng":[7.43429000738097,8.60253000836552]},"fitBounds":[46.9474400103048,7.43429000738097,47.643950010227,8.60253000836552,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="location-as-table" class="section level1">
+<h1>Location as table</h1>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:loctable F55)Locationmassages from F55
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+Rssi
+</th>
+<th style="text-align:right;">
+Latitude
+</th>
+<th style="text-align:right;">
+Longitude
+</th>
+<th style="text-align:right;">
+Altitude
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2021-02-12 10:50:06
+</td>
+<td style="text-align:right;">
+-100
+</td>
+<td style="text-align:right;">
+46.94744
+</td>
+<td style="text-align:right;">
+7.43444
+</td>
+<td style="text-align:right;">
+580.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-12 06:50:05
+</td>
+<td style="text-align:right;">
+-96
+</td>
+<td style="text-align:right;">
+46.94747
+</td>
+<td style="text-align:right;">
+7.43437
+</td>
+<td style="text-align:right;">
+539.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-12 02:50:05
+</td>
+<td style="text-align:right;">
+-100
+</td>
+<td style="text-align:right;">
+46.94746
+</td>
+<td style="text-align:right;">
+7.43429
+</td>
+<td style="text-align:right;">
+566.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 22:54:05
+</td>
+<td style="text-align:right;">
+-102
+</td>
+<td style="text-align:right;">
+46.94745
+</td>
+<td style="text-align:right;">
+7.43436
+</td>
+<td style="text-align:right;">
+541.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 18:52:05
+</td>
+<td style="text-align:right;">
+-99
+</td>
+<td style="text-align:right;">
+46.94767
+</td>
+<td style="text-align:right;">
+7.43484
+</td>
+<td style="text-align:right;">
+649.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 14:50:04
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:34:03
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:24:03
+</td>
+<td style="text-align:right;">
+-121
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:14:03
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:09:03
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 12:04:03
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 11:59:03
+</td>
+<td style="text-align:right;">
+-118
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 11:54:03
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 08:49:03
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 07:14:03
+</td>
+<td style="text-align:right;">
+-118
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-11 02:50:03
+</td>
+<td style="text-align:right;">
+-103
+</td>
+<td style="text-align:right;">
+47.32015
+</td>
+<td style="text-align:right;">
+7.81686
+</td>
+<td style="text-align:right;">
+444.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 23:18:02
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 23:14:02
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 16:19:01
+</td>
+<td style="text-align:right;">
+-111
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 10:52:01
+</td>
+<td style="text-align:right;">
+-109
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 06:51:00
+</td>
+<td style="text-align:right;">
+-110
+</td>
+<td style="text-align:right;">
+47.44523
+</td>
+<td style="text-align:right;">
+8.55113
+</td>
+<td style="text-align:right;">
+397.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-10 02:51:00
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+47.64368
+</td>
+<td style="text-align:right;">
+8.60240
+</td>
+<td style="text-align:right;">
+401.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 22:50:00
+</td>
+<td style="text-align:right;">
+-101
+</td>
+<td style="text-align:right;">
+47.64378
+</td>
+<td style="text-align:right;">
+8.60236
+</td>
+<td style="text-align:right;">
+395.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 18:49:59
+</td>
+<td style="text-align:right;">
+-99
+</td>
+<td style="text-align:right;">
+47.64395
+</td>
+<td style="text-align:right;">
+8.60216
+</td>
+<td style="text-align:right;">
+398.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 14:51:59
+</td>
+<td style="text-align:right;">
+-100
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 10:50:59
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+47.44376
+</td>
+<td style="text-align:right;">
+8.55177
+</td>
+<td style="text-align:right;">
+428.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 06:49:58
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+47.44376
+</td>
+<td style="text-align:right;">
+8.55171
+</td>
+<td style="text-align:right;">
+418.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-09 02:50:58
+</td>
+<td style="text-align:right;">
+-102
+</td>
+<td style="text-align:right;">
+47.64376
+</td>
+<td style="text-align:right;">
+8.60222
+</td>
+<td style="text-align:right;">
+401.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 22:49:58
+</td>
+<td style="text-align:right;">
+-100
+</td>
+<td style="text-align:right;">
+47.64366
+</td>
+<td style="text-align:right;">
+8.60228
+</td>
+<td style="text-align:right;">
+377.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 18:50:57
+</td>
+<td style="text-align:right;">
+-108
+</td>
+<td style="text-align:right;">
+47.64385
+</td>
+<td style="text-align:right;">
+8.60237
+</td>
+<td style="text-align:right;">
+335.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 14:50:57
+</td>
+<td style="text-align:right;">
+-116
+</td>
+<td style="text-align:right;">
+47.44358
+</td>
+<td style="text-align:right;">
+8.55175
+</td>
+<td style="text-align:right;">
+446.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 13:56:57
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 13:53:57
+</td>
+<td style="text-align:right;">
+-118
+</td>
+<td style="text-align:right;">
+47.44366
+</td>
+<td style="text-align:right;">
+8.55182
+</td>
+<td style="text-align:right;">
+474.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-08 02:49:56
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+47.64370
+</td>
+<td style="text-align:right;">
+8.60242
+</td>
+<td style="text-align:right;">
+397.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 22:49:55
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+47.64370
+</td>
+<td style="text-align:right;">
+8.60253
+</td>
+<td style="text-align:right;">
+407.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 18:49:55
+</td>
+<td style="text-align:right;">
+-87
+</td>
+<td style="text-align:right;">
+47.64370
+</td>
+<td style="text-align:right;">
+8.60241
+</td>
+<td style="text-align:right;">
+380.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 14:50:55
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+47.64369
+</td>
+<td style="text-align:right;">
+8.60247
+</td>
+<td style="text-align:right;">
+400.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 10:49:54
+</td>
+<td style="text-align:right;">
+-94
+</td>
+<td style="text-align:right;">
+47.64377
+</td>
+<td style="text-align:right;">
+8.60248
+</td>
+<td style="text-align:right;">
+402.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 06:50:54
+</td>
+<td style="text-align:right;">
+-97
+</td>
+<td style="text-align:right;">
+47.64377
+</td>
+<td style="text-align:right;">
+8.60250
+</td>
+<td style="text-align:right;">
+399.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-07 02:49:54
+</td>
+<td style="text-align:right;">
+-93
+</td>
+<td style="text-align:right;">
+47.64376
+</td>
+<td style="text-align:right;">
+8.60238
+</td>
+<td style="text-align:right;">
+412.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 22:49:55
+</td>
+<td style="text-align:right;">
+-88
+</td>
+<td style="text-align:right;">
+47.64377
+</td>
+<td style="text-align:right;">
+8.60249
+</td>
+<td style="text-align:right;">
+401.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 18:50:55
+</td>
+<td style="text-align:right;">
+-89
+</td>
+<td style="text-align:right;">
+47.64377
+</td>
+<td style="text-align:right;">
+8.60252
+</td>
+<td style="text-align:right;">
+388.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 14:49:54
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+47.64380
+</td>
+<td style="text-align:right;">
+8.60251
+</td>
+<td style="text-align:right;">
+397.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-06 10:47:48
+</td>
+<td style="text-align:right;">
+-94
+</td>
+<td style="text-align:right;">
+47.64378
+</td>
+<td style="text-align:right;">
+8.60250
+</td>
+<td style="text-align:right;">
+401.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-05 10:47:47
+</td>
+<td style="text-align:right;">
+-119
+</td>
+<td style="text-align:right;">
+47.64366
+</td>
+<td style="text-align:right;">
+8.60231
+</td>
+<td style="text-align:right;">
+378.6
+</td>
+</tr>
+</tbody>
+</table>
+</div>
