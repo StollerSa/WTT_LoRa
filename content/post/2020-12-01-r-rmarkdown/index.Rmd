@@ -84,21 +84,96 @@ tmap_mode("view")
 tm_shape(gw_heute) +
 tm_dots("DeviceEUI",alpha = 1, size = 0.3)
 ```
-    
+
+# All Devives
+```{r Namen der Devices, echo=FALSE}
+Namen <- tibble(
+  DeviceEUI = c(
+"0031873B48B65522", "3633333053397F03", "3433333051378219" ,"3633333053397F02",
+ "00BC251BBBD699F9", "3633333053397F04", "3633333053397C18", "3433333073378518",
+"3433333062378619", "00D359FDBB66FE3E", "343333305C378219"), 
+Name = c( "F55",   "F03",   "F56",  "F02",   "Fyy",  "F04",    "Fxx",   "F65",  "F38", "F08", "F01"   ),  
+Art = c(  "Primär","Primär","Solar","Primär","Primär","Primär","Primär","Solar","Solar","Primär", "Solar"  ),
+Wo = c(   "Kora",  "Stll",  "Stll", "Stll",  "Stll",  "Suts",  "Suts",  "Stll", "Neye", "Kuh"  ,"Stll"))
+
+Namen %>% arrange(Art,Name)%>%
+kbl(caption = "Devices und Namen") %>%
+        kable_classic(full_width = F, html_font = "Cambria", position = "left") 
+```
+
 
 
 # All Fixes on a map
-
 ```{r plot on a map, echo=FALSE, message=FALSE, warning=FALSE}
-df <- st_as_sf(x = locdata,                         
-           coords = c("Payload.Content.Lon", "Payload.Content.Lat"),
-           crs = 4326)
-df <- st_transform(df, 2056)
+F02	<-locdata %>% filter(DeviceEUI =="3633333053397F02") %>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F02 <- st_transform(F02, 2056)
+
+F03	<-locdata %>% filter(DeviceEUI =="3633333053397F03")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F03	 <- st_transform(F03, 2056)
+
+F04	<-locdata %>% filter(DeviceEUI =="3633333053397F04")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F04	 <- st_transform(F04, 2056)
+
+F08	<-locdata %>% filter(DeviceEUI =="00D359FDBB66FE3E")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F08	 <- st_transform(F08, 2056)
+
+F55 <- locdata %>% filter(DeviceEUI =="0031873B48B65522")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F55 <- st_transform(F55, 2056)
+
+Fxx	<-locdata %>% filter(DeviceEUI =="3633333053397C18")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+Fxx	 <- st_transform(Fxx, 2056)
+
+Fyy	<-locdata %>% filter(DeviceEUI =="00BC251BBBD699F9")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+Fyy	 <- st_transform(Fyy, 2056)
+
+F01	<-locdata %>% filter(DeviceEUI =="343333305C378219")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F01	 <- st_transform(F01, 2056)
+
+#F38		<-locdata %>% filter(DeviceEUI =="3433333062378619")%>%
+#st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+#F38		 <- st_transform(F38	, 2056)
+
+F56		<-locdata %>% filter(DeviceEUI =="3433333051378219")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F56		 <- st_transform(F56	, 2056)
+
+F65	<-locdata %>% filter(DeviceEUI =="3433333073378518")%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F65	 <- st_transform(F65, 2056)
+
+# all Devices as df 
 
 tmap_mode("view")
 
-tm_shape(df) +
-tm_dots("DeviceEUI",alpha = 0.8)
+tm_shape(F02) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="red", size = 0.1)+
+tm_shape(F03) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="yellow", size = 0.1)+
+tm_shape(F04) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="green", size = 0.1)+
+tm_shape(F08) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="cyan", size = 0.1)+
+tm_shape(F55) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="blue", size = 0.1)+
+tm_shape(Fxx) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="black", size = 0.1)+
+tm_shape(Fyy) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="magenta", size = 0.1)+
+tm_shape(F01) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="azure", size = 0.1)+
+tm_shape(F56) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="orange", size = 0.1)+
+tm_shape(F65) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="violet", size = 0.1)
+
 ```
 
 # Ohrmarke 100   
