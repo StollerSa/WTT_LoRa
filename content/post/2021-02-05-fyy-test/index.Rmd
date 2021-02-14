@@ -118,7 +118,7 @@ tm_basemap(server = "OpenStreetMap")+
 tm_shape(df_Fyy) +
 tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") #+
 #tm_shape(df_Fyy_lines) +
-#tm_lines( alpha = 0.4)   
+#tm_lines( alpha = 0.4)    
   
 ```
 

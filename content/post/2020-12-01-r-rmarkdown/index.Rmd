@@ -20,6 +20,7 @@ Datendownload und verarbeitung von LoRaWAN Downlinks
   library(sf)
   library(tmap)
   library(scales) 
+library(kableExtra)
    # make json, then make list
   mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
   
