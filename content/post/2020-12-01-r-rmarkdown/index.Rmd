@@ -32,7 +32,7 @@ library(kableExtra)
 - Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
 # Shows Payload last Day
-```{r echo=FALSE, message=FALSE, warning=FALSE ,results='hide',fig.keep='all'}
+```{r echo=FALSE, fig.height=4, fig.keep='all', fig.width=7, message=FALSE, warning=FALSE, results='hide'}
 
  mydata %>%    group_by(DeviceEUI) %>%
                 dplyr::filter(Time >= Sys.Date()-1)%>%
@@ -87,7 +87,7 @@ tm_dots("DeviceEUI",alpha = 1, size = 0.3)
 ```
 
 # All Devives
-```{r Namen der Devices, echo=FALSE}
+```{r Namen der Devices, echo=FALSE, fig.height=3, fig.width=3}
 Namen <- tibble(
   DeviceEUI = c(
 "0031873B48B65522", "3633333053397F03", "3433333051378219" ,"3633333053397F02",
