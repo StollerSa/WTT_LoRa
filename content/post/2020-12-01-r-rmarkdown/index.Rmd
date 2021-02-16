@@ -10,6 +10,13 @@ tags:
 categories: R
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=6)
+```
+
+
+
 # Einleitung     
 Datendownload und verarbeitung von LoRaWAN Downlinks
 
@@ -44,7 +51,7 @@ library(kableExtra)
   facet_wrap( ~ DeviceEUI, ncol = 1)
 
 time_format(format = "%H:%M", tz = "UTC")
-
+ 
 
 ```
  

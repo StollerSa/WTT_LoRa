@@ -1,0 +1,173 @@
+---
+title: Feldtest F02, F03, Fyy
+author: Stoller Sandro
+date: '2021-02-16'
+slug: f02-f03-fyy
+categories: []
+tags: []
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=6)
+```
+
+
+
+# Server connection
+```{r serverconetion, , message=FALSE, warning=FALSE, include=FALSE}
+  library(jsonlite)
+  library(tidyverse)
+  library(sf)
+  library(tmap)
+  library(scales) 
+  library(kableExtra)
+   # make json, then make list
+  mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
+  
+  mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+  mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+
+```
+- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
+# Shows Payload last 3 Days
+```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
+
+ mydata %>%    dplyr::filter(DeviceEUI == "3633333053397F02" | 
+                              DeviceEUI == "3633333053397F03" | 
+                              DeviceEUI == "00BC251BBBD699F9") %>%
+                dplyr::filter(Time >= Sys.Date()-3)%>%
+  ggplot(aes(Time, Payload.Type))+
+  geom_point()+
+  facet_wrap(~ DeviceEUI, ncol=1)+
+  theme_bw()+
+  scale_x_datetime(breaks = date_breaks("1 day"),
+  labels = date_format("%d/%m"))+
+  facet_wrap(~ DeviceEUI)
+
+
+```
+ 
+
+```{r from Text, echo=FALSE, message=FALSE, warning=FALSE}
+
+Feldtest <- mydata  %>%
+  dplyr::filter(DeviceEUI == "3633333053397F02" | 
+                              DeviceEUI == "3633333053397F03" | 
+                              DeviceEUI == "00BC251BBBD699F9") %>%
+            dplyr::filter(Time >= "2021-02-15")
+
+
+
+#Batterielevel Feldtest
+FeldtestStatus <- Feldtest %>% 
+  dplyr::filter(Payload.Type== "Status")  
+
+ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = DeviceEUI)) +
+  geom_point() +
+    geom_line()+
+
+    theme(legend.position = "none",panel.background = element_blank(),
+            panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                colour = "gray"))+
+    labs(title="Plot der Batteriespannung",
+        x ="Datum", y = "Batteriespannung")+
+  facet_wrap( ~ DeviceEUI, ncol=1)
+```
+# Show Status Table from the last 3 Days
+
+```{r Status as Table, echo=FALSE}
+
+FeldtestStatus  %>% filter(Time >= Sys.Date()-3)%>%
+        rename(Temperatur = Payload.Content.Temperature , 
+               Battery = Payload.Content.BatteryVoltage,
+               GpsAverageSignal = Payload.Content.GpsAverageSignal)%>%
+  select(c("Time","DeviceEUI","Rssi","Temperatur","Battery","GpsAverageSignal"))%>%
+  kbl(caption = "Statusmassages from Feldtest") %>%
+  kable_classic(full_width = F, html_font = "Cambria", position = "left")
+```
+    
+    
+    
+
+# Show Gateways der letzen 2 Tage
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Feldtestheute <- Feldtest %>% dplyr::filter(Time >= Sys.Date()-2) 
+
+Feldtestgw_heute <- st_as_sf(x = Feldtestheute ,                         
+           coords = c("GatewayLon", "GatewayLat"),
+           crs = 4326) %>% 
+            st_transform( 2056)
+
+tmap_mode("view")
+
+tm_shape(Feldtestgw_heute) +
+tm_dots("DeviceEUI",alpha = 1, size = 0.3)
+```
+    
+
+# Localisationen seit "2021-02-15" 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+F02T	<-Feldtest %>% filter(DeviceEUI =="3633333053397F02") %>% 
+                      filter(Payload.Type == "Location")%>%
+  dplyr::filter("Payload.Content.Alt" != 0.0)%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F02T <- st_transform(F02T, 2056)
+F02T_lines <- F02T %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINESTRING")
+
+F03T	<-Feldtest %>% filter(DeviceEUI =="3633333053397F03")%>%
+                        filter(Payload.Type == "Location")%>%
+  dplyr::filter("Payload.Content.Alt" != 0.0)%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+F03T	 <- st_transform(F03T, 2056)
+F03T_lines <- F03T %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINESTRING")
+
+
+FyyT	<-Feldtest %>% filter(DeviceEUI =="00BC251BBBD699F9")%>%
+                        filter(Payload.Type == "Location")%>%
+  dplyr::filter("Payload.Content.Alt" != 0.0)%>%
+st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
+FyyT	 <- st_transform(FyyT, 2056)
+FyyT_lines <- FyyT %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINESTRING")
+
+
+tmap_mode("view")
+tm_basemap(server = "OpenStreetMap")+
+  
+tm_shape(F02T) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="red", size = 0.1)+
+  tm_shape(F02T_lines) +
+  tm_lines( alpha = 0.4) +
+  
+tm_shape(F03T) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="yellow", size = 0.1)+
+  tm_shape(F03T_lines) +
+  tm_lines( alpha = 0.4)+
+  
+tm_shape(FyyT) +
+  tm_dots("DeviceEUI",alpha = 0.8,col="magenta", size = 0.1)+
+  tm_shape(FyyT_lines) +
+  tm_lines( alpha = 0.4)   
+  
+```
+
+# Location as table
+
+```{r loctable F55, echo=FALSE, fig.height=6, fig.width=6}
+ mydata  %>%
+  dplyr::filter(DeviceEUI == "3633333053397F02" | 
+                              DeviceEUI == "3633333053397F03" | 
+                              DeviceEUI == "00BC251BBBD699F9") %>%
+            dplyr::filter(Time >= "2021-02-15")%>% 
+          dplyr::filter(Payload.Type== "Location")%>%
+        rename(Latitude =Payload.Content.Lat , 
+               Longitude = Payload.Content.Lon ,
+               Altitude = Payload.Content.Alt )%>%
+        select(c("Time","DeviceEUI", "Rssi","Latitude","Longitude","Altitude"))%>%
+        kbl(caption = "Locationmassages from F55") %>%
+        kable_classic(full_width = F, html_font = "Cambria", position = "left") 
+```
+

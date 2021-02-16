@@ -6,6 +6,12 @@ categories:  ["R"]
 tags: ["R Markdown"]
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=6)
+```
+
+
+
 # Einleitung  
 Visualisierungen der Kennwerte aller Devices
 
@@ -26,11 +32,11 @@ Visualisierungen der Kennwerte aller Devices
 ```
 - Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
-# Shows Payload last 7 Days
+# Shows Payload last 3 Days
 ```{r Payload.Type, echo=FALSE,  message=FALSE, warning=FALSE}
 
  mydata %>%    group_by(DeviceEUI) %>%
-                dplyr::filter(Time >= Sys.Date()-7)%>%
+                dplyr::filter(Time >= Sys.Date()-3)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
   theme_bw()+

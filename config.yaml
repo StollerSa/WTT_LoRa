@@ -37,3 +37,5 @@ params:
     height: 50
     url: logo.png
     width: 50
+fig_width: 6 
+fig_height: 4 

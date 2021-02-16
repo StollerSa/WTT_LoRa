@@ -1,0 +1,1727 @@
+---
+title: Feldtest F02, F03, Fyy
+author: Stoller Sandro
+date: '2021-02-16'
+slug: f02-f03-fyy
+categories: []
+tags: []
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/proj4/proj4.min.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+<script src="/rmarkdown-libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
+<script src="/rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+
+
+<div id="server-connection" class="section level1">
+<h1>Server connection</h1>
+<ul>
+<li>Last compiled on 16 Februar, 2021</li>
+</ul>
+</div>
+<div id="shows-payload-last-3-days" class="section level1">
+<h1>Shows Payload last 3 Days</h1>
+<p><img src="/post/2021-02-16-feldtest-f02-f03-fyy/f02-f03-fyy_files/figure-html/payload-1.png" width="576" /></p>
+<p><img src="/post/2021-02-16-feldtest-f02-f03-fyy/f02-f03-fyy_files/figure-html/from%20Text-1.png" width="576" />
+# Show Status Table from the last 3 Days</p>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; ">
+<caption>
+(#tab:Status as Table)Statusmassages from Feldtest
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:left;">
+DeviceEUI
+</th>
+<th style="text-align:right;">
+Rssi
+</th>
+<th style="text-align:right;">
+Temperatur
+</th>
+<th style="text-align:right;">
+Battery
+</th>
+<th style="text-align:right;">
+GpsAverageSignal
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2021-02-16 14:25:43
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-78
+</td>
+<td style="text-align:right;">
+13.9
+</td>
+<td style="text-align:right;">
+3622
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 13:50:32
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+<td style="text-align:right;">
+3548
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 13:44:50
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-73
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+<td style="text-align:right;">
+3572
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 13:25:42
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-78
+</td>
+<td style="text-align:right;">
+11.6
+</td>
+<td style="text-align:right;">
+3614
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 12:50:32
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+<td style="text-align:right;">
+3536
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 12:44:50
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-78
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3558
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 12:25:42
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+10.8
+</td>
+<td style="text-align:right;">
+3592
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:49:25
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-89
+</td>
+<td style="text-align:right;">
+10.1
+</td>
+<td style="text-align:right;">
+3384
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:44:42
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-76
+</td>
+<td style="text-align:right;">
+10.2
+</td>
+<td style="text-align:right;">
+3390
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:25:35
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+11.9
+</td>
+<td style="text-align:right;">
+3416
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 08:49:25
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-86
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+3352
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 08:44:40
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+6.2
+</td>
+<td style="text-align:right;">
+3370
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 08:24:49
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+3582
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 05:49:25
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-88
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3354
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 05:49:09
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3344
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 05:24:48
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-89
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+3576
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 02:49:24
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-93
+</td>
+<td style="text-align:right;">
+5.3
+</td>
+<td style="text-align:right;">
+3344
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 02:44:38
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3368
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 02:24:47
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3578
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:49:24
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-91
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3348
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:44:38
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-80
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3356
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:26:00
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-80
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+3396
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 20:49:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-87
+</td>
+<td style="text-align:right;">
+5.3
+</td>
+<td style="text-align:right;">
+3352
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 20:44:37
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-78
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3354
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 20:24:44
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:right;">
+3568
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 17:49:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3382
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 17:44:36
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-77
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3372
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 17:24:43
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+3592
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 15:38:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-82
+</td>
+<td style="text-align:right;">
+30.8
+</td>
+<td style="text-align:right;">
+3474
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 14:44:49
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-118
+</td>
+<td style="text-align:right;">
+32.0
+</td>
+<td style="text-align:right;">
+3472
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 14:44:34
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-104
+</td>
+<td style="text-align:right;">
+32.0
+</td>
+<td style="text-align:right;">
+3472
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 14:39:42
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-113
+</td>
+<td style="text-align:right;">
+25.6
+</td>
+<td style="text-align:right;">
+3622
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 14:34:42
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+25.6
+</td>
+<td style="text-align:right;">
+3622
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 12:09:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+16.9
+</td>
+<td style="text-align:right;">
+3376
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 11:44:33
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+12.6
+</td>
+<td style="text-align:right;">
+3402
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 11:25:26
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-116
+</td>
+<td style="text-align:right;">
+13.4
+</td>
+<td style="text-align:right;">
+3438
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 08:57:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+5.2
+</td>
+<td style="text-align:right;">
+3332
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 08:45:02
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+3370
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 08:24:40
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3580
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 05:54:01
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+18.2
+</td>
+<td style="text-align:right;">
+3432
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 05:51:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+31.5
+</td>
+<td style="text-align:right;">
+3458
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 05:44:38
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-110
+</td>
+<td style="text-align:right;">
+5.2
+</td>
+<td style="text-align:right;">
+3588
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 02:49:21
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-101
+</td>
+<td style="text-align:right;">
+23.6
+</td>
+<td style="text-align:right;">
+3472
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 02:44:44
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-99
+</td>
+<td style="text-align:right;">
+24.1
+</td>
+<td style="text-align:right;">
+3452
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 02:24:37
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-77
+</td>
+<td style="text-align:right;">
+6544.1
+</td>
+<td style="text-align:right;">
+3524
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="show-gateways-der-letzen-2-tage" class="section level1">
+<h1>Show Gateways der letzen 2 Tage</h1>
+<div id="htmlwidget-1" style="width:576px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"addProviderTiles","args":["Esri.WorldGrayCanvas",null,"Esri.WorldGrayCanvas",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addCircleMarkers","args":[[47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5671650101882,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672190101883,47.5672190101883,47.5672190101883,47.5672190101883,47.5672190101883,47.5672380101883,47.5672380101883,47.5672380101883,47.5672380101883,47.5672380101883,47.5672380101883,47.5671690101883,47.5671690101883,47.5671690101883,47.5671690101883,47.5671690101883,47.5671690101883,47.5671770101883,47.5671770101883,47.5671770101883,47.5671770101883,47.5671770101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5672070101883,47.5204050102,47.5156360101753,47.5156360101753,47.5204050102,47.5204050102,47.4387970101773,47.4388050101772,47.4388080101772,47.4388080101773,47.4388280101772,47.4388280101772,47.4388430101772,47.4388280101773,47.4388280101773,47.4388280101773,47.4388470101773,47.4388050101772,47.4387780101772,47.4387780101772,47.4387860101772,47.4387890101772,47.5046650102039,47.6436160102269,47.6436160102269,47.6436160102269,47.6436160102269,47.6436160102269,47.6436160102269],[8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885700844415,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65885600844413,8.65882800844411,8.65882800844411,8.65882800844411,8.65882800844411,8.65882800844411,8.65885400844412,8.65885400844412,8.65885400844412,8.65885400844412,8.65885400844412,8.65885400844412,8.65886800844416,8.65886800844416,8.65886800844416,8.65886800844416,8.65886800844416,8.65886800844416,8.65885400844415,8.65885400844415,8.65885400844415,8.65885400844415,8.65885400844415,8.65894500844422,8.65894500844422,8.65894500844422,8.65894500844422,8.57183600837577,8.65128000845354,8.65128000845354,8.57183600837577,8.57183600837577,8.56430500839428,8.56430600839428,8.56429100839427,8.56428800839426,8.56428100839424,8.56428100839424,8.56427900839424,8.56427300839424,8.56428000839425,8.56428000839425,8.56428700839424,8.56428700839426,8.56430700839428,8.56430700839428,8.56430700839428,8.56430200839428,8.54244100835242,8.60245800836548,8.60245800836548,8.60245800836548,8.60245800836548,8.60245800836548,8.60245800836548],[10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033,10.9544511501033],["X2021.02.16.14.50.31","X2021.02.16.14.45.35","X2021.02.16.14.25.43","X2021.02.16.13.50.32","X2021.02.16.13.44.50","X2021.02.16.13.25.42","X2021.02.16.12.50.32","X2021.02.16.12.44.50","X2021.02.16.12.25.42","X2021.02.16.11.52.31","X2021.02.16.11.51.31","X2021.02.16.11.50.30","X2021.02.16.11.49.25","X2021.02.16.11.48.25","X2021.02.16.11.45.32","X2021.02.16.11.45.17","X2021.02.16.11.45.01","X2021.02.16.11.44.42","X2021.02.16.11.44.26","X2021.02.16.11.26.26","X2021.02.16.11.26.10","X2021.02.16.11.25.55","X2021.02.16.11.25.35","X2021.02.16.11.25.20","X2021.02.16.08.49.25","X2021.02.16.08.48.24","X2021.02.16.08.44.40","X2021.02.16.08.44.25","X2021.02.16.08.24.49","X2021.02.16.07.26.18","X2021.02.16.05.49.25","X2021.02.16.05.49.09","X2021.02.16.05.48.54","X2021.02.16.05.48.24","X2021.02.16.05.24.48","X2021.02.16.03.25.16","X2021.02.16.02.49.24","X2021.02.16.02.48.23","X2021.02.16.02.44.38","X2021.02.16.02.44.24","X2021.02.16.02.24.47","X2021.02.15.23.49.24","X2021.02.15.23.48.23","X2021.02.15.23.44.38","X2021.02.15.23.44.22","X2021.02.15.23.26.00","X2021.02.15.23.25.45","X2021.02.15.20.49.23","X2021.02.15.20.48.23","X2021.02.15.20.44.37","X2021.02.15.20.44.21","X2021.02.15.20.24.44","X2021.02.15.19.25.28","X2021.02.15.17.49.23","X2021.02.15.17.48.22","X2021.02.15.17.44.36","X2021.02.15.17.44.20","X2021.02.15.17.24.43","X2021.02.15.15.39.41","X2021.02.15.15.38.23","X2021.02.15.15.37.22","X2021.02.15.15.34.43","X2021.02.15.14.44.49","X2021.02.15.14.44.34","X2021.02.15.14.44.19","X2021.02.15.14.39.42","X2021.02.15.14.34.42","X2021.02.15.12.09.22","X2021.02.15.12.07.22","X2021.02.15.11.44.33","X2021.02.15.11.44.17","X2021.02.15.11.25.26","X2021.02.15.11.25.10","X2021.02.15.08.57.22","X2021.02.15.08.49.21","X2021.02.15.08.45.02","X2021.02.15.08.44.31","X2021.02.15.08.24.40","X2021.02.15.07.25.38","X2021.02.15.05.54.01","X2021.02.15.05.53.45","X2021.02.15.05.51.22","X2021.02.15.05.50.21","X2021.02.15.05.44.38","X2021.02.15.03.25.07","X2021.02.15.02.49.21","X2021.02.15.02.48.20","X2021.02.15.02.44.44","X2021.02.15.02.44.29","X2021.02.15.02.24.37"],"Feldtestgw_heute",{"interactive":true,"className":"","pane":"tmap401","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#8DD3C7","#BEBADA","#FFFFB3","#8DD3C7","#BEBADA","#FFFFB3","#8DD3C7","#BEBADA","#FFFFB3","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#BEBADA","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#FFFFB3","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#BEBADA","#BEBADA","#8DD3C7","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#FFFFB3","#BEBADA","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3","#FFFFB3","#BEBADA","#BEBADA","#8DD3C7","#8DD3C7","#FFFFB3","#FFFFB3","#8DD3C7","#8DD3C7","#BEBADA","#BEBADA","#FFFFB3"],"fillOpacity":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 14:50:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 14:45:35<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 14:25:43<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 13:50:32<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 13:44:50<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 13:25:42<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 12:50:32<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 12:44:50<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 12:25:42<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:52:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:51:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:50:30<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:49:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:48:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:45:32<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:45:17<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:45:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:44:42<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:44:26<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:26:26<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:26:10<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:25:55<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:25:35<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:25:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:49:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:48:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:44:40<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:44:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:24:49<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 07:26:18<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:49:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:49:09<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:48:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:48:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:24:48<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 03:25:16<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:49:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:44:38<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:44:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:24:47<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:49:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:44:38<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:44:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:26:00<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:25:45<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:49:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:44:37<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:44:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:24:44<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 19:25:28<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:49:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:48:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:44:36<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:44:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:24:43<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:39:41<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:38:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:37:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:34:43<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:44:49<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:44:34<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:44:19<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:39:42<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:34:42<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 12:09:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 12:07:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:44:33<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:44:17<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:25:26<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:25:10<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:57:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:49:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:45:02<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:44:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:24:40<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 07:25:38<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:54:01<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:53:45<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:51:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:50:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:44:38<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 03:25:07<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:49:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:48:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:44:44<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:44:29<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:24:37<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-16 14:50:31","2021-02-16 14:45:35","2021-02-16 14:25:43","2021-02-16 13:50:32","2021-02-16 13:44:50","2021-02-16 13:25:42","2021-02-16 12:50:32","2021-02-16 12:44:50","2021-02-16 12:25:42","2021-02-16 11:52:31","2021-02-16 11:51:31","2021-02-16 11:50:30","2021-02-16 11:49:25","2021-02-16 11:48:25","2021-02-16 11:45:32","2021-02-16 11:45:17","2021-02-16 11:45:01","2021-02-16 11:44:42","2021-02-16 11:44:26","2021-02-16 11:26:26","2021-02-16 11:26:10","2021-02-16 11:25:55","2021-02-16 11:25:35","2021-02-16 11:25:20","2021-02-16 08:49:25","2021-02-16 08:48:24","2021-02-16 08:44:40","2021-02-16 08:44:25","2021-02-16 08:24:49","2021-02-16 07:26:18","2021-02-16 05:49:25","2021-02-16 05:49:09","2021-02-16 05:48:54","2021-02-16 05:48:24","2021-02-16 05:24:48","2021-02-16 03:25:16","2021-02-16 02:49:24","2021-02-16 02:48:23","2021-02-16 02:44:38","2021-02-16 02:44:24","2021-02-16 02:24:47","2021-02-15 23:49:24","2021-02-15 23:48:23","2021-02-15 23:44:38","2021-02-15 23:44:22","2021-02-15 23:26:00","2021-02-15 23:25:45","2021-02-15 20:49:23","2021-02-15 20:48:23","2021-02-15 20:44:37","2021-02-15 20:44:21","2021-02-15 20:24:44","2021-02-15 19:25:28","2021-02-15 17:49:23","2021-02-15 17:48:22","2021-02-15 17:44:36","2021-02-15 17:44:20","2021-02-15 17:24:43","2021-02-15 15:39:41","2021-02-15 15:38:23","2021-02-15 15:37:22","2021-02-15 15:34:43","2021-02-15 14:44:49","2021-02-15 14:44:34","2021-02-15 14:44:19","2021-02-15 14:39:42","2021-02-15 14:34:42","2021-02-15 12:09:22","2021-02-15 12:07:22","2021-02-15 11:44:33","2021-02-15 11:44:17","2021-02-15 11:25:26","2021-02-15 11:25:10","2021-02-15 08:57:22","2021-02-15 08:49:21","2021-02-15 08:45:02","2021-02-15 08:44:31","2021-02-15 08:24:40","2021-02-15 07:25:38","2021-02-15 05:54:01","2021-02-15 05:53:45","2021-02-15 05:51:22","2021-02-15 05:50:21","2021-02-15 05:44:38","2021-02-15 03:25:07","2021-02-15 02:49:21","2021-02-15 02:48:20","2021-02-15 02:44:44","2021-02-15 02:44:29","2021-02-15 02:24:37"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["#8DD3C7","#FFFFB3","#BEBADA"],"labels":["00BC251BBBD699F9","3633333053397F02","3633333053397F03"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"unknown","title":"DeviceEUI","extra":null,"layerId":"legend401","className":"info legend","group":"Feldtestgw_heute"}]},{"method":"addLayersControl","args":[["Esri.WorldGrayCanvas","OpenStreetMap","Esri.WorldTopoMap"],"Feldtestgw_heute",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[47.4387780101772,47.6436160102269],"lng":[8.54244100835242,8.65894500844422]},"fitBounds":[47.4387780101772,8.54244100835242,47.6436160102269,8.65894500844422,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="localisationen-seit-2021-02-15" class="section level1">
+<h1>Localisationen seit “2021-02-15”</h1>
+<div id="htmlwidget-2" style="width:576px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"createMapPane","args":["tmap402",402]},{"method":"createMapPane","args":["tmap403",403]},{"method":"createMapPane","args":["tmap404",404]},{"method":"createMapPane","args":["tmap405",405]},{"method":"createMapPane","args":["tmap406",406]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addCircleMarkers","args":[[47.5670500101882,47.5670200101882,47.5670500101882,47.5670000101882,47.5671100101882,47.5671900101883,47.5671900101883,47.4438300101824,47.4437800101824,47.6437400102269],[8.65914000844446,8.65890000844423,8.65910000844442,8.65922000844455,8.65894000844425,8.6588100084441,8.6588100084441,8.55186000838067,8.5517700083806,8.60245000836543],[6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676],["X2021.02.16.11.25.20","X2021.02.16.07.26.18","X2021.02.16.03.25.16","X2021.02.15.23.25.45","X2021.02.15.19.25.28","X2021.02.15.15.39.41","X2021.02.15.15.34.43","X2021.02.15.11.25.10","X2021.02.15.07.25.38","X2021.02.15.03.25.07"],"F02T",{"interactive":true,"className":"","pane":"tmap401","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000"],"fillOpacity":[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:25:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 07:26:18<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 03:25:16<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:25:45<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 19:25:28<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:39:41<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:34:43<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:25:10<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 07:25:38<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 03:25:07<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F02<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-16 11:25:20","2021-02-16 07:26:18","2021-02-16 03:25:16","2021-02-15 23:25:45","2021-02-15 19:25:28","2021-02-15 15:39:41","2021-02-15 15:34:43","2021-02-15 11:25:10","2021-02-15 07:25:38","2021-02-15 03:25:07"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[8.65914000844446,8.65890000844423,8.65910000844442,8.65922000844455,8.65894000844425,8.6588100084441,8.6588100084441,8.55186000838067,8.5517700083806,8.60245000836543],"lat":[47.5670500101882,47.5670200101882,47.5670500101882,47.5670000101882,47.5671100101882,47.5671900101883,47.5671900101883,47.4438300101824,47.4437800101824,47.6437400102269]}]]],"X1","F02T_lines",{"interactive":true,"className":"","pane":"tmap402","stroke":true,"color":"#000000","weight":1,"opacity":0.4,"fill":false,"fillColor":"#000000","fillOpacity":0.2,"dashArray":"none","smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08],[1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09],[6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676],["X2021.02.16.14.45.35","X2021.02.16.11.44.26","X2021.02.16.08.44.25","X2021.02.16.05.48.54","X2021.02.16.02.44.24","X2021.02.15.23.44.22","X2021.02.15.20.44.21","X2021.02.15.17.44.20","X2021.02.15.14.44.19","X2021.02.15.11.44.17","X2021.02.15.08.44.31","X2021.02.15.05.53.45","X2021.02.15.02.44.29"],"F03T",{"interactive":true,"className":"","pane":"tmap403","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00","#FFFF00"],"fillOpacity":[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 14:45:35<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:44:26<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:44:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:48:54<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:44:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:44:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:44:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:44:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 14:44:19<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 11:44:17<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:44:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:53:45<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:44:29<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>3633333053397F03<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-16 14:45:35","2021-02-16 11:44:26","2021-02-16 08:44:25","2021-02-16 05:48:54","2021-02-16 02:44:24","2021-02-15 23:44:22","2021-02-15 20:44:21","2021-02-15 17:44:20","2021-02-15 14:44:19","2021-02-15 11:44:17","2021-02-15 08:44:31","2021-02-15 05:53:45","2021-02-15 02:44:29"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09],"lat":[3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08]}]]],"X1.1","F03T_lines",{"interactive":true,"className":"","pane":"tmap404","stroke":true,"color":"#000000","weight":1,"opacity":0.4,"fill":false,"fillColor":"#000000","fillOpacity":0.2,"dashArray":"none","smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,47.5124300101635,47.4439500101823,47.4438000101824,3.78940975953332e-08,3.78940975953332e-08],[1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,8.68795000848961,8.55252000838127,8.55185000838067,1.38876871824312e-09,1.38876871824312e-09],[6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676,6.32455532033676],["X2021.02.16.14.50.31","X2021.02.16.11.48.25","X2021.02.16.08.48.24","X2021.02.16.05.48.24","X2021.02.16.02.48.23","X2021.02.15.23.48.23","X2021.02.15.20.48.23","X2021.02.15.17.48.22","X2021.02.15.15.37.22","X2021.02.15.12.07.22","X2021.02.15.08.49.21","X2021.02.15.05.50.21","X2021.02.15.02.48.20"],"FyyT",{"interactive":true,"className":"","pane":"tmap405","stroke":true,"color":"#666666","weight":1,"opacity":0.5,"fill":true,"fillColor":["#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF","#FF00FF"],"fillOpacity":[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]},null,null,["<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 14:50:31<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 11:48:25<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 08:48:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 05:48:24<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-16 02:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 23:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 20:48:23<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 17:48:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 15:37:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 12:07:22<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 08:49:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 05:50:21<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:0px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>2021-02-15 02:48:20<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>DeviceEUI<\/nobr><\/td><td align=\"right\"><nobr>00BC251BBBD699F9<\/nobr><\/td><\/tr><\/table><\/div>"],null,["2021-02-16 14:50:31","2021-02-16 11:48:25","2021-02-16 08:48:24","2021-02-16 05:48:24","2021-02-16 02:48:23","2021-02-15 23:48:23","2021-02-15 20:48:23","2021-02-15 17:48:22","2021-02-15 15:37:22","2021-02-15 12:07:22","2021-02-15 08:49:21","2021-02-15 05:50:21","2021-02-15 02:48:20"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,1.38876871824312e-09,8.68795000848961,8.55252000838127,8.55185000838067,1.38876871824312e-09,1.38876871824312e-09],"lat":[3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,3.78940975953332e-08,47.5124300101635,47.4439500101823,47.4438000101824,3.78940975953332e-08,3.78940975953332e-08]}]]],"X1.2","FyyT_lines",{"interactive":true,"className":"","pane":"tmap406","stroke":true,"color":"#000000","weight":1,"opacity":0.4,"fill":false,"fillColor":"#000000","fillOpacity":0.2,"dashArray":"none","smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLayersControl","args":[[],["F02T","F02T_lines","F03T","F03T_lines","FyyT","FyyT_lines"],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[3.78940975953332e-08,47.6437400102269],"lng":[1.38876871824312e-09,8.68795000848961]},"fitBounds":[47.4437800101824,8.5517700083806,47.6437400102269,8.65922000844455,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="location-as-table" class="section level1">
+<h1>Location as table</h1>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; ">
+<caption>
+(#tab:loctable F55)Locationmassages from F55
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:left;">
+DeviceEUI
+</th>
+<th style="text-align:right;">
+Rssi
+</th>
+<th style="text-align:right;">
+Latitude
+</th>
+<th style="text-align:right;">
+Longitude
+</th>
+<th style="text-align:right;">
+Altitude
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2021-02-16 14:50:31
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 14:45:35
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-76
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:48:25
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-89
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:44:26
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-78
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 11:25:20
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-82
+</td>
+<td style="text-align:right;">
+47.56705
+</td>
+<td style="text-align:right;">
+8.65914
+</td>
+<td style="text-align:right;">
+549.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 08:48:24
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-83
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 08:44:25
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 07:26:18
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-85
+</td>
+<td style="text-align:right;">
+47.56702
+</td>
+<td style="text-align:right;">
+8.65890
+</td>
+<td style="text-align:right;">
+580.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 05:48:54
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 05:48:24
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-88
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 03:25:16
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-81
+</td>
+<td style="text-align:right;">
+47.56705
+</td>
+<td style="text-align:right;">
+8.65910
+</td>
+<td style="text-align:right;">
+524.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 02:48:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-86
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-16 02:44:24
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-79
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:48:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-90
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:44:22
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 23:25:45
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+47.56700
+</td>
+<td style="text-align:right;">
+8.65922
+</td>
+<td style="text-align:right;">
+556.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 20:48:23
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-83
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 20:44:21
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-84
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 19:25:28
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-82
+</td>
+<td style="text-align:right;">
+47.56711
+</td>
+<td style="text-align:right;">
+8.65894
+</td>
+<td style="text-align:right;">
+521.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 17:48:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-82
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 17:44:20
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-77
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 15:39:41
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-73
+</td>
+<td style="text-align:right;">
+47.56719
+</td>
+<td style="text-align:right;">
+8.65881
+</td>
+<td style="text-align:right;">
+578.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 15:37:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-80
+</td>
+<td style="text-align:right;">
+47.51243
+</td>
+<td style="text-align:right;">
+8.68795
+</td>
+<td style="text-align:right;">
+411.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 15:34:43
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-69
+</td>
+<td style="text-align:right;">
+47.56719
+</td>
+<td style="text-align:right;">
+8.65881
+</td>
+<td style="text-align:right;">
+578.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 14:44:19
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-95
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 12:07:22
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-116
+</td>
+<td style="text-align:right;">
+47.44395
+</td>
+<td style="text-align:right;">
+8.55252
+</td>
+<td style="text-align:right;">
+346.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 11:44:17
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-117
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 11:25:10
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-115
+</td>
+<td style="text-align:right;">
+47.44383
+</td>
+<td style="text-align:right;">
+8.55186
+</td>
+<td style="text-align:right;">
+425.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 08:49:21
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+47.44380
+</td>
+<td style="text-align:right;">
+8.55185
+</td>
+<td style="text-align:right;">
+423.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 08:44:31
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-113
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 07:25:38
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-113
+</td>
+<td style="text-align:right;">
+47.44378
+</td>
+<td style="text-align:right;">
+8.55177
+</td>
+<td style="text-align:right;">
+427.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 05:53:45
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-114
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 05:50:21
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-113
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 03:25:07
+</td>
+<td style="text-align:left;">
+3633333053397F02
+</td>
+<td style="text-align:right;">
+-74
+</td>
+<td style="text-align:right;">
+47.64374
+</td>
+<td style="text-align:right;">
+8.60245
+</td>
+<td style="text-align:right;">
+397.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 02:48:20
+</td>
+<td style="text-align:left;">
+00BC251BBBD699F9
+</td>
+<td style="text-align:right;">
+-103
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-02-15 02:44:29
+</td>
+<td style="text-align:left;">
+3633333053397F03
+</td>
+<td style="text-align:right;">
+-99
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
