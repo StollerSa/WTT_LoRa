@@ -10,7 +10,7 @@ tags: []
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=4)
+knitr::opts_chunk$set(echo = TRUE, fig.width=5)
 ```
 
 
@@ -32,13 +32,13 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=4)
 ```
 - Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
-# Shows Payload last 3 Days
+# Shows Payload last 1 Days
 ```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
 
  mydata %>%    dplyr::filter(DeviceEUI == "3633333053397F02" | 
                               DeviceEUI == "3633333053397F03" | 
                               DeviceEUI == "00BC251BBBD699F9") %>%
-                dplyr::filter(Time >= Sys.Date()-3)%>%
+                dplyr::filter(Time >= Sys.Date()-1)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
   facet_wrap(~ DeviceEUI, ncol=1)+

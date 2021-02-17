@@ -12,10 +12,10 @@ categories: R
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=4)
+knitr::opts_chunk$set(echo = TRUE, fig.width=5)
 ```
 
-
+  
 
 # Einleitung     
 Datendownload und verarbeitung von LoRaWAN Downlinks
