@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=5)
 
  mydata %>%    dplyr::filter(DeviceEUI == "3633333053397F04") %>% 
                 dplyr::filter(Time >= Sys.Date()-3)%>%
-  ggplot(aes(Time, Payload.Type))+
+  ggplot(aes(Time, Payload.Type) )+
   geom_point()+
   theme_bw()+
 scale_x_datetime(breaks = date_breaks("1 day"),
@@ -52,7 +52,7 @@ F04 <- mydata  %>%
 
 
 
-#Batterielevel F04 
+# Batterielevel F04 
 F04Status <- F04 %>% 
   dplyr::filter(Payload.Type== "Status")  
 
@@ -92,7 +92,7 @@ F04gw_heute <- st_as_sf(x = F04heute ,
             st_transform( 2056)
 
 tmap_mode("view")
-
+tm_basemap(server = "OpenStreetMap")+
 tm_shape(F04gw_heute) +
 tm_dots("DeviceEUI",alpha = 1, size = 0.3)
 ```
@@ -105,7 +105,7 @@ F04LocData <- mydata  %>%
   dplyr::filter(DeviceEUI == "3633333053397F04")%>% 
           dplyr::filter(Payload.Type== "Location")%>%
           dplyr::filter("Payload.Content.Alt" != 0.0)%>%
-          dplyr::filter(Payload.Content.Time > "2021-02-03 00:00:00")
+          dplyr::filter(Payload.Content.Time > "2021-02-03 00:00:02")
 
 
 df_F04 <- st_as_sf(x = F04LocData ,                         
@@ -118,7 +118,7 @@ df_F04_lines <- df_F04 %>% dplyr::summarise(do_union = FALSE) %>% st_cast("LINES
 tmap_mode("view")
 tm_basemap(server = "OpenStreetMap")+
 tm_shape(df_F04) +
-tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") +
+tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="orange") +
 tm_shape(df_F04_lines) +
 tm_lines( alpha = 0.4)     
   
@@ -135,7 +135,7 @@ tm_lines( alpha = 0.4)
                Longitude = Payload.Content.Lon ,
                Altitude = Payload.Content.Alt )%>%
         select(c("Time","Rssi","Latitude","Longitude","Altitude"))%>%
-        kbl(caption = "Locationmassages from F04") %>%
+        kbl(caption = "Locationmassage from F04") %>%
         kable_classic(full_width = F, html_font = "Cambria", position = "left") 
 ```
 
