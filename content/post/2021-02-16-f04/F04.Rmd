@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=5)
 ```{r serverconetion, , message=FALSE, warning=FALSE, include=FALSE}
   library(jsonlite)
   library(tidyverse)
-  library(sf)
+  library(sf) 
   library(tmap)
   library(scales) 
   library(kableExtra)
@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=5)
 # Shows Payload last 3 Days
 ```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
 
- mydata %>%    dplyr::filter(DeviceEUI == "3633333053397F04") %>%
+ mydata %>%    dplyr::filter(DeviceEUI == "3633333053397F04") %>% 
                 dplyr::filter(Time >= Sys.Date()-3)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
@@ -52,7 +52,7 @@ F04 <- mydata  %>%
 
 
 
-#Batterielevel F04
+#Batterielevel F04 
 F04Status <- F04 %>% 
   dplyr::filter(Payload.Type== "Status")  
 
@@ -73,7 +73,7 @@ ggplot(F04Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
 F04Status  %>% filter(Time >= Sys.Date()-7)%>%
 select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVoltage","Payload.Content.GpsAverageSignal"))%>%
         rename(Temperatur = Payload.Content.Temperature , 
-               BatteryVoltage = Payload.Content.BatteryVoltage,
+               BatteryVoltage = Payload.Content.BatteryVoltage ,
                GpsAverageSignal = Payload.Content.GpsAverageSignal)%>%
   kbl(caption = "Statusmassages from F04") %>%
   kable_classic(full_width = F, html_font = "Cambria", position = "left")
@@ -86,7 +86,7 @@ select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVol
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 F04heute <- F04 %>% dplyr::filter(Time >= Sys.Date()-2) 
 
-F04gw_heute <- st_as_sf(x = F04heute ,                         
+F04gw_heute <- st_as_sf(x = F04heute ,                          
            coords = c("GatewayLon", "GatewayLat"),
            crs = 4326) %>% 
             st_transform( 2056)
@@ -120,7 +120,7 @@ tm_basemap(server = "OpenStreetMap")+
 tm_shape(df_F04) +
 tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow") +
 tm_shape(df_F04_lines) +
-tm_lines( alpha = 0.4)   
+tm_lines( alpha = 0.4)     
   
 ```
 
