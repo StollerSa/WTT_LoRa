@@ -10,7 +10,7 @@ tags: []
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=5)
+knitr::opts_chunk$set(echo = TRUE, fig.width=4)
 ```
 
 
@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=5)
                 dplyr::filter(Time >= Sys.Date()-1)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
-  facet_wrap(~ DeviceEUI, ncol=1)+
+  facet_wrap(~ DeviceEUI, ncol=1 )+
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 day"),
   labels = date_format("%d/%m"))+

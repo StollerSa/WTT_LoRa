@@ -39,7 +39,7 @@ library(kableExtra)
 - Last compiled on `r format(Sys.time(), '%d %B, %Y')`
 
 # Shows Payload last Day
-```{r echo=FALSE, fig.height=4, fig.keep='all', fig.width=7, message=FALSE, warning=FALSE, results='hide'}
+```{r echo=FALSE, fig.height=6, fig.keep='all', fig.width=7, message=FALSE, warning=FALSE, results='hide'}
 
  mydata %>%    group_by(DeviceEUI) %>%
                 dplyr::filter(Time >= Sys.Date()-1)%>%
@@ -50,7 +50,6 @@ library(kableExtra)
   labels =  time_format(format = "%H:%M", tz = "UTC"))+
   facet_wrap( ~ DeviceEUI, ncol = 1)
 
-time_format(format = "%H:%M", tz = "UTC")
  
 
 ```
