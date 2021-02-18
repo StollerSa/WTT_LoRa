@@ -68,7 +68,7 @@ ggplot(F04Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
         x ="Datum", y = "Batteriespannung")
 ```
    
-# Show Status Table from the last 7 Days
+  # Show Status Table from the last 7 Days
 
 ```{r Status as Table, echo=FALSE}
 
