@@ -80,7 +80,7 @@ ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage
 
 ```{r Status as Table, echo=FALSE}
 
-FeldtestStatus  %>% filter(Time >= Sys.Date()-3)%>%
+FeldtestStatus  %>% filter(Time >= Sys.Date()-3 | Time <= Sys.Date()-6)%>%
         rename(Temperatur = Payload.Content.Temperature , 
                Battery = Payload.Content.BatteryVoltage,
                GpsAverageSignal = Payload.Content.GpsAverageSignal)%>%
