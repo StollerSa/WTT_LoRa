@@ -10,7 +10,7 @@ tags: []
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=4)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -23,14 +23,18 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=4)
   library(tmap)
   library(scales) 
   library(kableExtra)
+  library(plotly)
    # make json, then make list
   mydata <- fromJSON("https://srv-lab-t-430.zhaw.ch/wildtiertracking/api/parsed-data/json", flatten = TRUE)
   
   mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
+  # summarize the counts of satallites
+  mydata  <- mydata %>%
+  mutate(sumSat = rowSums(select(., contains("Payload.Content.GpsCount")))) 
 
 ```
-- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
 
 # Shows Payload last 1 Days
 ```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
@@ -41,12 +45,11 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=4)
                 dplyr::filter(Time >= Sys.Date()-1)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
-  facet_wrap(~ DeviceEUI, ncol=1 )+
+  facet_wrap(~ DeviceEUI, ncol=1)+
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 day"),
   labels = date_format("%d/%m"))+
-  facet_wrap(~ DeviceEUI)
-
+   labs(caption = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 
 ```
  
@@ -55,14 +58,22 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=4)
 
 Feldtest <- mydata  %>%
   dplyr::filter(DeviceEUI == "3633333053397F02" | 
-                              DeviceEUI == "3633333053397F03" | 
-                              DeviceEUI == "00BC251BBBD699F9") %>%
-            dplyr::filter(Time >= "2021-02-15")
+                DeviceEUI == "3633333053397F03" | 
+                DeviceEUI == "00BC251BBBD699F9") %>%
+                  dplyr::filter(Time >= "2021-02-15")%>%
+                      dplyr::filter(Payload.Content.Lon <= 10.6677 )%>%
+                      dplyr::filter(Payload.Content.Lon >= 5.7349 )%>%
+                      dplyr::filter(Payload.Content.Lat <= 47.9163 )%>%
+                      dplyr::filter(Payload.Content.Lat >= 45.6755 )
 
 
 
 #Batterielevel Feldtest
-FeldtestStatus <- Feldtest %>% 
+FeldtestStatus <- mydata  %>%
+  dplyr::filter(DeviceEUI == "3633333053397F02" | 
+                DeviceEUI == "3633333053397F03" | 
+                DeviceEUI == "00BC251BBBD699F9") %>%
+                  dplyr::filter(Time >= "2021-02-15")%>%
   dplyr::filter(Payload.Type== "Status")  
 
 ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = DeviceEUI)) +
@@ -74,7 +85,8 @@ ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung")+
-  facet_wrap( ~ DeviceEUI, ncol=1)
+  facet_wrap( ~ DeviceEUI, ncol=1)+
+   labs(caption = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 ```
 # Show Status Table from the last 3 Days
 
@@ -82,11 +94,11 @@ ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage
 
 FeldtestStatus  %>% filter(Time >= Sys.Date()-3 | Time <= Sys.Date()-6)%>%
         rename(Temperatur = Payload.Content.Temperature , 
-               Battery = Payload.Content.BatteryVoltage,
-               GpsAverageSignal = Payload.Content.GpsAverageSignal)%>%
-  select(c("Time","DeviceEUI","Rssi","Temperatur","Battery","GpsAverageSignal"))%>%
+               Battery = Payload.Content.BatteryVoltage)%>%
+  select(c("Time","DeviceEUI","Rssi","Temperatur","Battery","sumSat"))%>%
   kbl(caption = "Statusmassages from Feldtest") %>%
-  kable_classic(full_width = F, html_font = "Cambria", position = "left")
+  kable_classic(full_width = F, html_font = "Cambria", position = "left")%>%
+    footnote(general = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 ```
     
     
@@ -102,7 +114,7 @@ Feldtestgw_heute <- st_as_sf(x = Feldtestheute ,
             st_transform( 2056)
 
 tmap_mode("view")
-
+tm_basemap(server = "OpenStreetMap")+
 tm_shape(Feldtestgw_heute) +
 tm_dots("DeviceEUI",alpha = 1, size = 0.3)
 ```
@@ -154,20 +166,21 @@ tm_shape(FyyT) +
   
 ```
 
-# Location as table
+# Location as table Today
 
 ```{r loctable F55, echo=FALSE, fig.height=6, fig.width=6}
  mydata  %>%
   dplyr::filter(DeviceEUI == "3633333053397F02" | 
                               DeviceEUI == "3633333053397F03" | 
                               DeviceEUI == "00BC251BBBD699F9") %>%
-            dplyr::filter(Time >= "2021-02-15")%>% 
+            dplyr::filter(Time >= Sys.Date()-1)%>% 
           dplyr::filter(Payload.Type== "Location")%>%
         rename(Latitude =Payload.Content.Lat , 
                Longitude = Payload.Content.Lon ,
                Altitude = Payload.Content.Alt )%>%
         select(c("Time","DeviceEUI", "Rssi","Latitude","Longitude","Altitude"))%>%
         kbl(caption = "Locationmassages from F55") %>%
-        kable_classic(full_width = F, html_font = "Cambria", position = "left") 
+        kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
+    footnote(general = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 ```
 

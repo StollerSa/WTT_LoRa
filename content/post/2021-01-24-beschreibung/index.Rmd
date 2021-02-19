@@ -7,7 +7,7 @@ tags: ["R Markdown"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=4)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -30,10 +30,11 @@ Visualisierungen der Kennwerte aller Devices
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
 
 ```
-- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
 
 # Shows Payload last 3 Days
 ```{r Payload.Type, echo=FALSE,  message=FALSE, warning=FALSE}
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
 
  mydata %>%    group_by(DeviceEUI) %>%
                 dplyr::filter(Time >= Sys.Date()-3)%>%

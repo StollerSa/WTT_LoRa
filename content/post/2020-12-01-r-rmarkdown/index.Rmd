@@ -1,5 +1,5 @@
 ---
-title: "Lokalisationen-Visualisierungen"
+title: "Übersicht aller Tracker"
 author: "Stll"
 date: '2021-01-24T21:48:51-07:00'
 output: pdf_document
@@ -36,10 +36,8 @@ library(kableExtra)
 
 ```
 
-- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
-
 # Shows Payload last Day
-```{r echo=FALSE, fig.height=6, fig.keep='all', fig.width=7, message=FALSE, warning=FALSE, results='hide'}
+```{r echo=FALSE, fig.keep='all', warning=FALSE, , message=FALSE, results='hide'}
 
  mydata %>%    group_by(DeviceEUI) %>%
                 dplyr::filter(Time >= Sys.Date()-1)%>%
@@ -48,10 +46,8 @@ library(kableExtra)
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("3 hours"),
   labels =  time_format(format = "%H:%M", tz = "UTC"))+
-  facet_wrap( ~ DeviceEUI, ncol = 1)
-
- 
-
+  facet_wrap( ~ DeviceEUI, ncol = 1)+
+   labs(caption = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 ```
  
 
@@ -79,6 +75,7 @@ statdata <- mydata %>%
 # Plot der Gateways die Uplinks hatten   
 - letze Woche
 ```{r Gateways, echo=FALSE, message=FALSE, warning=FALSE}
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
 heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-7) 
 
 gw_heute <- st_as_sf(x = heute ,                         
@@ -90,6 +87,7 @@ tmap_mode("view")
 
 tm_shape(gw_heute) +
 tm_dots("DeviceEUI",alpha = 1, size = 0.3)
+
 ```
 
 # All Devives
@@ -105,13 +103,16 @@ Wo = c(   "Kora",  "Stll",  "Stll", "Stll",  "Stll",  "Suts",  "Suts",  "Stll", 
 
 Namen %>% arrange(Art,Name)%>%
 kbl(caption = "Devices und Namen") %>%
-        kable_classic(full_width = F, html_font = "Cambria", position = "left") 
+        kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
+    footnote(general = print(paste("Last compiled on", "2021-02-19 15:00:00")))
 ```
 
 
 
 # All Fixes on a map
 ```{r plot on a map, echo=FALSE, message=FALSE, warning=FALSE}
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
+
 F02	<-locdata %>% filter(DeviceEUI =="3633333053397F02") %>%
 st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
 F02 <- st_transform(F02, 2056)
@@ -186,6 +187,8 @@ tm_shape(F65) +
 # Ohrmarke 100   
 - Trajektorie seit der Besenderung 2021-01-11 20:00
 ```{r F08, , echo=FALSE, message=FALSE, warning=FALSE}
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
+
 df2 <- locdata %>% dplyr::filter(DeviceEUI == "00D359FDBB66FE3E") %>%
                   dplyr::filter(Payload.Content.Time >= "2021-01-11 20:00:00")%>%  
     st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),
@@ -199,7 +202,9 @@ tm_basemap(server = "OpenStreetMap")+
 tm_shape(df2) +
 tm_dots("DeviceEUI",alpha = 0.5, size=0.1,col="yellow")+
 tm_shape(df2_lines ) +
-tm_lines( alpha = 0.4)   
+tm_lines( alpha = 0.4)
+
+
 
 #centum_klm <- df2_lines %>% st_transform(4326) %>% # just because wgs84...
  # select(Description = Time) 

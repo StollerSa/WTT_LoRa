@@ -9,7 +9,7 @@ tags:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=4)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -27,20 +27,23 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=4)
   
   mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
-
+# summarize the counts of satallites
+  mydata  <- mydata %>%
+  mutate(sumSat = rowSums(select(., contains("Payload.Content.GpsCount")))) 
+### round.POSIXt(Sys.time(), "h") ###
 ```
-- Last compiled on `r format(Sys.time(), '%d %B, %Y')`
+
 
 # Shows Payload last 3 Days
 ```{r payload, echo=FALSE, warning=FALSE , message=FALSE}
-
  mydata %>%    dplyr::filter(DeviceEUI == "0031873B48B65522") %>%
                 dplyr::filter(Time >= Sys.Date()-3)%>%
   ggplot(aes(Time, Payload.Type))+
   geom_point()+
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 day"),
-  labels = date_format("%d/%m"))
+  labels = date_format("%d/%m"))+
+   labs(caption = paste("Last compiled on", "2021-02-19 16:00:00"))
 
 
 ```
@@ -65,19 +68,21 @@ ggplot(F55Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
             panel.grid.major = element_line(size = 0.5, linetype = 'solid',
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
-        x ="Datum", y = "Batteriespannung")
+        x ="Datum", y = "Batteriespannung",
+        caption = paste("Last compiled on", "2021-02-19 16:00:00"))
 ```
-# Show Status Table from the last 7 Days
+    
+# Show Status Table from the last 3 Days
 
 ```{r Status as Table, echo=FALSE}
 
-F55Status  %>% filter(Time >= Sys.Date()-7)%>%
-select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVoltage","Payload.Content.GpsAverageSignal"))%>%
+F55Status  %>% filter(Time >= Sys.Date()-3)%>%
+select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVoltage","sumSat" ))%>%
         rename(Temperatur = Payload.Content.Temperature , 
-               BatteryVoltage = Payload.Content.BatteryVoltage,
-               GpsAverageSignal = Payload.Content.GpsAverageSignal)%>%
+               BatteryVoltage = Payload.Content.BatteryVoltage)%>%
   kbl(caption = "Statusmassages from F55") %>%
-  kable_classic(full_width = F, html_font = "Cambria", position = "left")
+  kable_classic(full_width = F, html_font = "Cambria", position = "left")%>%
+    footnote(general = paste("Last compiled on", "2021-02-19 16:00:00"))
 ```
     
     
@@ -85,7 +90,12 @@ select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVol
 
 # Show Gateways der letzen 2 Tage
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-F55heute <- F55 %>% dplyr::filter(Time >= Sys.Date()-2) 
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
+F55heute <- F55 %>% dplyr::filter(Time >= Sys.Date()-2) %>%  
+                      dplyr::filter(GatewayLon <= 10.6677 )%>%
+                      dplyr::filter(GatewayLon >= 5.7349 )%>%
+                      dplyr::filter(GatewayLat <= 47.9163 )%>%
+                      dplyr::filter(GatewayLat >= 45.6755 )
 
 F55gw_heute <- st_as_sf(x = F55heute ,                         
            coords = c("GatewayLon", "GatewayLat"),
@@ -93,15 +103,15 @@ F55gw_heute <- st_as_sf(x = F55heute ,
             st_transform( 2056)
 
 tmap_mode("view")
-
+tm_basemap(server = "OpenStreetMap")+
 tm_shape(F55gw_heute) +
-tm_dots("DeviceEUI",alpha = 1, size = 0.3)
+tm_dots("DeviceEUI",alpha = 0.5, size = 0.2)
 ```
     
 
 # Localisationen seit "2021-02-03" 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-
+print(paste("Last compiled on", "2021-02-19 15:00:00"))
 F55LocData <- mydata  %>%
   dplyr::filter(DeviceEUI == "0031873B48B65522")%>% 
           dplyr::filter(Payload.Type== "Location")%>%
@@ -128,6 +138,7 @@ tm_lines( alpha = 0.4)
 # Location as table
 
 ```{r loctable F55, echo=FALSE, fig.height=6, fig.width=6}
+
  mydata  %>%
     dplyr::filter(DeviceEUI == "0031873B48B65522")%>% 
           dplyr::filter(Payload.Type== "Location")%>%
@@ -137,6 +148,7 @@ tm_lines( alpha = 0.4)
                Altitude = Payload.Content.Alt )%>%
         select(c("Time","Rssi","Latitude","Longitude","Altitude"))%>%
         kbl(caption = "Locationmassages from F55") %>%
-        kable_classic(full_width = F, html_font = "Cambria", position = "left") 
+        kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
+    footnote(general = paste("Last compiled on", "2021-02-19 16:00:00"))
 ```
 
