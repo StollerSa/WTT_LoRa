@@ -28,13 +28,12 @@ Visualisierungen der Kennwerte aller Devices
   
   mydata$Time <- as.POSIXct(strptime(mydata$Time, format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
-
+### round.POSIXt(Sys.time(), "h") ###
 ```
 
 
 # Shows Payload last 3 Days
 ```{r Payload.Type, echo=FALSE,  message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-19 15:00:00"))
 
  mydata %>%    group_by(DeviceEUI) %>%
                 dplyr::filter(Time >= Sys.Date()-3)%>%
@@ -43,7 +42,8 @@ print(paste("Last compiled on", "2021-02-19 15:00:00"))
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 days"),
   labels = date_format("%d/%m"))+
-  facet_wrap( ~ DeviceEUI, ncol = 2)
+  facet_wrap( ~ DeviceEUI, ncol = 2)+
+   labs(caption = paste("Last compiled on", "2021-02-20 08:00:00"))
 
 ```
  
@@ -74,10 +74,11 @@ statdata %>% dplyr::filter(Time >= "2021-01-01 00:00:00")%>%
 ggplot( aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, colour = DeviceEUI)) +
   geom_point() +
     geom_line()+
-  facet_wrap( ~ DeviceEUI, ncol = 2)+
+    facet_wrap( ~ DeviceEUI, ncol = 2)+
     theme(legend.position = "none",panel.background = element_blank(),
             panel.grid.major = element_line(size = 0.5, linetype = 'solid',
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
-        x ="Datum", y = "Batteriespannung")  
+          x ="Datum", y = "Batteriespannung", 
+          caption = paste("Last compiled on", "2021-02-20 08:00:00"))
 ```

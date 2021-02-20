@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = TRUE)
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 day"),
   labels = date_format("%d/%m"))+
-   labs(caption = paste("Last compiled on", "2021-02-19 16:00:00"))
+   labs(caption = paste("Last compiled on", "2021-02-20 08:00:00"))
 
 
 ```
@@ -69,7 +69,7 @@ ggplot(F55Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung",
-        caption = paste("Last compiled on", "2021-02-19 16:00:00"))
+        caption = paste("Last compiled on", "2021-02-20 08:00:00"))
 ```
     
 # Show Status Table from the last 3 Days
@@ -82,7 +82,7 @@ select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVol
                BatteryVoltage = Payload.Content.BatteryVoltage)%>%
   kbl(caption = "Statusmassages from F55") %>%
   kable_classic(full_width = F, html_font = "Cambria", position = "left")%>%
-    footnote(general = paste("Last compiled on", "2021-02-19 16:00:00"))
+    footnote(general = paste("Last compiled on", "2021-02-20 08:00:00"))
 ```
     
     
@@ -149,6 +149,6 @@ tm_lines( alpha = 0.4)
         select(c("Time","Rssi","Latitude","Longitude","Altitude"))%>%
         kbl(caption = "Locationmassages from F55") %>%
         kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
-    footnote(general = paste("Last compiled on", "2021-02-19 16:00:00"))
+    footnote(general = paste("Last compiled on", "2021-02-20 08:00:00"))
 ```
 
