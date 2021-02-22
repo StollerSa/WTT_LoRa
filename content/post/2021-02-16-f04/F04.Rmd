@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = TRUE)
   theme_bw()+
 scale_x_datetime(breaks = date_breaks("1 day"),
   minor_breaks = date_breaks("3 hour"))+
-   labs(caption = paste("Last compiled on", "2021-02-20 08:00:00"))
+   labs(caption = paste("Last compiled on", "2021-02-22 16:00:00"))
 
 
 ```
@@ -70,7 +70,7 @@ ggplot(F04Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung",
-        caption = paste("Last compiled on", "2021-02-20 08:00:00"))
+        caption = paste("Last compiled on", "2021-02-22 16:00:00"))
 ```
    
   # Show Status Table from the last 7 Days
