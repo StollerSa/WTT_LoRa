@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
   mydata$Payload.Content.Time <- as.POSIXct(strptime(mydata$Payload.Content.Time , format = '%Y-%m-%dT%H:%M:%S'), format = '%Y-%m-%dT%H:%M:%S')
   # summarize the counts of satallites
   mydata  <- mydata %>%
-  mutate(sumSat = rowSums(select(., contains("Payload.Content.GpsCount")))) 
+  mutate(sumSat = rowSums(select(., contains("Payload.Content.GpsCount" )))) 
 ### round.POSIXt(Sys.time(), "h") ###
 ```
 
@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = TRUE)
   theme_bw()+
 scale_x_datetime(breaks = date_breaks("1 day"),
   minor_breaks = date_breaks("3 hour"))+
-   labs(caption = paste("Last compiled on", "2021-02-22 16:00:00"))
+   labs(caption = paste("Last compiled on", "2021-02-22 16:00:00" ))
 
 
 ```
@@ -70,7 +70,7 @@ ggplot(F04Status, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage, col
                                 colour = "gray"))+
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung",
-        caption = paste("Last compiled on", "2021-02-22 16:00:00"))
+        caption = paste("Last compiled on", "2021-02-22 16:00:00" ))
 ```
    
   # Show Status Table from the last 7 Days
@@ -83,7 +83,7 @@ select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVol
                BatteryVoltage = Payload.Content.BatteryVoltage)%>%
   kbl(caption = "Statusmassages from F04") %>%
   kable_classic(full_width = F, html_font = "Cambria", position = "left")%>%
-    footnote(general = print(paste("Last compiled on", "2021-02-19 15:00:00")))
+    footnote(general = print(paste("Last compiled on", "2021-02-22 16:00:00" )))
 ```
     
     
@@ -91,7 +91,7 @@ select(c("Time","Rssi","Payload.Content.Temperature","Payload.Content.BatteryVol
 
 # Show Gateways der letzen 2 Tage
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-19 15:00:00"))
+print(paste("Last compiled on", "2021-02-22 16:00:00"))
 F04heute <- F04 %>% dplyr::filter(Time >= Sys.Date()-2) %>%
                       dplyr::filter(GatewayLon <= 10.6677 )%>%
                       dplyr::filter(GatewayLon >= 5.7349 )%>%
@@ -112,7 +112,7 @@ tm_dots("DeviceEUI",alpha = 1, size = 0.3)
 
 # Localisationen seit "2021-02-03" 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-19 15:00:00"))
+print(paste("Last compiled on", "2021-02-22 16:00:00"))
 F04LocData <- mydata  %>%
   dplyr::filter(DeviceEUI == "3633333053397F04")%>% 
           dplyr::filter(Payload.Type== "Location")%>%
@@ -150,6 +150,6 @@ mydata  %>%
         select(c("Time","Rssi","Latitude","Longitude","Altitude"))%>%
         kbl(caption = "Locationmassage from F04") %>%
         kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
-    footnote(general = print(paste("Last compiled on", "2021-02-19 15:00:00")))
+    footnote(general = print(paste("Last compiled on", "2021-02-22 16:00:00")))
 ```
 
