@@ -49,7 +49,7 @@ knitr::opts_chunk$set(echo = TRUE)
   theme_bw()+
   scale_x_datetime(breaks = date_breaks("1 day"),
   labels = date_format("%d/%m"))+
-   labs(caption = print(paste("Last compiled on", "2021-02-22 16:00:00")))
+   labs(caption = print(paste("Last compiled on", "2021-02-26 08:00:00")))
 
 ```
  
@@ -86,7 +86,7 @@ ggplot(FeldtestStatus, aes(x = as.Date(Time), y = Payload.Content.BatteryVoltage
     labs(title="Plot der Batteriespannung",
         x ="Datum", y = "Batteriespannung")+
   facet_wrap( ~ DeviceEUI, ncol=1)+
-   labs(caption = print(paste("Last compiled on", "2021-02-22 16:00:00")))
+   labs(caption = print(paste("Last compiled on", "2021-02-26 08:00:00")))
 ```
 # Show Status Table from the last 3 Days
 
@@ -98,7 +98,7 @@ FeldtestStatus  %>% filter(Time >= Sys.Date()-3 | Time <= Sys.Date()-6)%>%
   select(c("Time","DeviceEUI","Rssi","Temperatur","Battery","sumSat"))%>%
   kbl(caption = "Statusmassages from Feldtest") %>%
   kable_classic(full_width = F, html_font = "Cambria", position = "left")%>%
-    footnote(general = print(paste("Last compiled on", "2021-02-22 16:00:00")))
+    footnote(general = print(paste("Last compiled on", "2021-02-26 08:00:00")))
 ```
     
     
@@ -181,6 +181,6 @@ tm_shape(FyyT) +
         select(c("Time","DeviceEUI", "Rssi","Latitude","Longitude","Altitude"))%>%
         kbl(caption = "Locationmassages from F55") %>%
         kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
-    footnote(general = print(paste("Last compiled on", "2021-02-22 16:00:00")))
+    footnote(general = print(paste("Last compiled on", "2021-02-26 08:00:00")))
 ```
 
