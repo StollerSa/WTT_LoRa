@@ -47,7 +47,7 @@ library(kableExtra)
   scale_x_datetime(breaks = date_breaks("3 hours"),
   labels =  time_format(format = "%H:%M", tz =  "UTC"))+
   facet_wrap( ~ DeviceEUI, ncol = 1)+
-   labs(caption = paste("Last compiled on", "2021-02-26 08:00:00"))
+   labs(caption = paste("Last compiled on", "2021-03-02 10:00:00"))
 ```
  
 
@@ -75,7 +75,7 @@ statdata <- mydata %>%
 # Plot der Gateways die Uplinks hatten   
 - letze Woche
 ```{r Gateways, echo=FALSE, message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-26 08:00:00"))
+print(paste("Last compiled on", "2021-03-02 10:00:00"))
 heute <- mydata %>% dplyr::filter(Time >= Sys.Date()-7) 
 
 gw_heute <- st_as_sf(x = heute ,                         
@@ -104,14 +104,14 @@ Wo = c(   "Kora",  "Stll",  "Stll", "Stll",  "Stll",  "Kuh",  "Suts",  "Stll", "
 Namen %>% arrange(Art,Name)%>%
 kbl(caption = "Devices und Namen") %>%
         kable_classic(full_width = F, html_font = "Cambria", position = "left") %>%
-    footnote(general = print(paste("Last compiled on", "2021-02-26 08:00:00")))
+    footnote(general = print(paste("Last compiled on", "2021-03-02 10:00:00")))
 ```
 
 
 
 # All Fixes on a map
 ```{r plot on a map, echo=FALSE, message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-26 08:00:00"))
+print(paste("Last compiled on", "2021-03-02 10:00:00"))
 
 F02	<-locdata %>% filter(DeviceEUI =="3633333053397F02") %>%
 st_as_sf(coords = c("Payload.Content.Lon", "Payload.Content.Lat"),crs = 4326)
@@ -187,7 +187,7 @@ tm_shape(F65) +
 # Ohrmarke 100   
 - Trajektorie seit der Besenderung 2021-01-11 20:00
 ```{r F08, , echo=FALSE, message=FALSE, warning=FALSE}
-print(paste("Last compiled on", "2021-02-26 08:00:00"))
+print(paste("Last compiled on", "2021-03-02 10:00:00"))
 
 df2 <- locdata %>% dplyr::filter(DeviceEUI == "00D359FDBB66FE3E") %>%
                   dplyr::filter(Payload.Content.Time >= "2021-01-11 20:00:00")%>%  
